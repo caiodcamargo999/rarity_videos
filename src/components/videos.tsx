@@ -86,14 +86,14 @@ export function Videos() {
           lineHeight="1.6"
           mb={{ base: "6", sm: "8" }}
         >
-          Explore my latest video work and creative projects
+                          {t("videosDescription")}
         </Text>
 
         {loading && (
           <Box textAlign="center" py="12">
             <Spinner size="lg" color={textColor} />
             <Text color={textColor} opacity="0.7" mt="4">
-              Loading videos...
+                              {t("loadingVideos")}
             </Text>
           </Box>
         )}
@@ -107,10 +107,10 @@ export function Videos() {
         {!loading && !error && videos.length === 0 && (
           <Box textAlign="center" py="12">
             <Text color={textColor} opacity="0.7" mb="4">
-              No videos found.
+                              {t("noVideosFound")}
             </Text>
             <Text color={textColor} opacity="0.5" fontSize="sm">
-              Please check that video files are placed in the videos folder.
+                              {t("noVideosMessage")}
             </Text>
           </Box>
         )}
@@ -241,7 +241,7 @@ export function Videos() {
                     fontWeight="medium"
                     zIndex="2"
                   >
-                    Click to play
+                    {t("clickToPlay")}
                   </Text>
                 </Box>
                 

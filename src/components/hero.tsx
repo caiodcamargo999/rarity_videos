@@ -112,7 +112,7 @@ export function Hero() {
                  opacity="1"
                  textAlign="center" // Always center
                >
-                 Watch my Work
+                 {t("ctaWatch")}
                </Text>
                
                {/* Scroll down to explore Text - Right below Watch my Work */}
@@ -125,7 +125,7 @@ export function Hero() {
                  mb="4" // Space before arrow
                  textAlign="center" // Always center
                >
-                 Scroll down to explore
+                 {t("scrollDownToExplore")}
                </Text>
                
                {/* Animated Arrow - Centered below the text */}
@@ -162,7 +162,7 @@ export function Hero() {
                    borderRadius="full"
                    px="6"
                  >
-                   Instagram
+                   {t("instagram")}
                  </Button>
                  
                  <Button
@@ -184,7 +184,7 @@ export function Hero() {
                    borderRadius="full"
                    px="6"
                  >
-                   LinkedIn
+                   {t("linkedin")}
                  </Button>
                </HStack>
              </Box>

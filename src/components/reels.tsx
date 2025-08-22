@@ -124,7 +124,7 @@ export function Reels({ reels = carolinaReels }: { reels?: Reel[] }) {
           <Alert status="info" borderRadius="lg" bg="whiteAlpha.100" border="1px solid" borderColor="whiteAlpha.200" w="full">
             <AlertIcon color={textColor} />
             <Text color={textColor} fontSize="sm">
-              Click the play button to watch reels directly on the website.
+                              {t("reelsDescription")}
             </Text>
           </Alert>
 
@@ -224,7 +224,7 @@ export function Reels({ reels = carolinaReels }: { reels?: Reel[] }) {
                     textAlign="center"
                     fontStyle="italic"
                   >
-                    Click to watch on Instagram
+                    {t("clickToWatchOnInstagram")}
                   </Text>
                 </Box>
               </Box>
