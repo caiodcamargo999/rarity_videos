@@ -7,14 +7,12 @@ interface InteractiveCardProps {
   children: ReactNode;
   className?: string;
   hoverEffect?: "lift" | "glow" | "scale" | "tilt";
-  delay?: number;
 }
 
 export function InteractiveCard({ 
   children, 
   className = "", 
-  hoverEffect = "lift",
-  delay = 0
+  hoverEffect = "lift"
 }: InteractiveCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -22,7 +20,7 @@ export function InteractiveCard({
     lift: {
       y: -8,
       boxShadow: "0 20px 40px rgba(215, 197, 182, 0.3)",
-      transition: { duration: 0.3, ease: "easeOut" }
+      transition: { duration: 0.3, ease: "easeOut" as const }
     },
     glow: {
       boxShadow: [
@@ -30,16 +28,16 @@ export function InteractiveCard({
         "0 0 40px rgba(215, 197, 182, 0.4)",
         "0 0 60px rgba(215, 197, 182, 0.6)"
       ],
-      transition: { duration: 0.3, ease: "easeOut" }
+      transition: { duration: 0.3, ease: "easeOut" as const }
     },
     scale: {
       scale: 1.05,
-      transition: { duration: 0.3, ease: "easeOut" }
+      transition: { duration: 0.3, ease: "easeOut" as const }
     },
     tilt: {
       rotateX: 5,
       rotateY: 5,
-      transition: { duration: 0.3, ease: "easeOut" }
+      transition: { duration: 0.3, ease: "easeOut" as const }
     }
   };
 
