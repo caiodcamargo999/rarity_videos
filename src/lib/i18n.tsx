@@ -118,8 +118,10 @@ function getDir(locale: Locale): "ltr" | "rtl" {
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>("en");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const stored = typeof window !== "undefined" ? (localStorage.getItem("locale") as Locale | null) : null;
     if (stored && ["en", "pt", "es", "ar"].includes(stored)) {
       setLocale(stored);
@@ -127,12 +129,12 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (mounted && typeof window !== "undefined") {
       localStorage.setItem("locale", locale);
       document.documentElement.dir = getDir(locale);
       document.documentElement.lang = locale;
     }
-  }, [locale]);
+  }, [locale, mounted]);
 
   const value = useMemo<I18nContextValue>(() => {
     const dict = dictionaries[locale];

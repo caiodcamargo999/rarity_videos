@@ -35,7 +35,7 @@ export function About() {
         >
           <GradientText
             gradient="copper"
-            className="text-2xl sm:text-3xl lg:text-4xl font-extralight tracking-wide text-center lg:text-left mb-6 sm:mb-8 px-4 sm:px-0"
+            className="text-5xl sm:text-6xl lg:text-7xl font-extralight tracking-wide text-center lg:text-left mb-6 sm:mb-8 px-4 sm:px-0"
           >
             {t("aboutTitle")}
           </GradientText>
