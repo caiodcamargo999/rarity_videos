@@ -43,7 +43,7 @@ export function FloatingVideo({
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
-  const handleDragEnd = (event: any, info: PanInfo) => {
+  const handleDragEnd = (event: never, info: PanInfo) => {
     // Optional: Add boundaries or snap behavior
     const { offset } = info;
     x.set(offset.x);

@@ -14,7 +14,7 @@ export function InteractiveCard({
   children, 
   className = "", 
   hoverEffect = "lift",
-  delay = 0 
+  delay = 0
 }: InteractiveCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 

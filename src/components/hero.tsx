@@ -2,9 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
-import { Box, VStack, HStack, Text, useColorModeValue, Button } from "@chakra-ui/react";
+import { Box, VStack, Text, useColorModeValue } from "@chakra-ui/react";
 import { ProfilePicture } from "./profile-picture";
-import { ResponsiveFloatingVideo } from "./floating-video";
 import { ChevronDown } from "lucide-react";
 import { GradientText } from "./gradient-text";
 

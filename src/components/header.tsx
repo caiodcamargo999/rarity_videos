@@ -60,7 +60,7 @@ export function Header() {
             {languages.map((l) => (
               <MenuItem
                 key={l.code}
-                onClick={() => setLocale(l.code as any)}
+                onClick={() => setLocale(l.code as "en" | "pt" | "es" | "ar")}
                 bg={l.code === locale ? "brand.lightBrown" : "transparent"}
                 color={l.code === locale ? "brand.darkBrown" : "brand.lightBrown"}
                 _hover={{

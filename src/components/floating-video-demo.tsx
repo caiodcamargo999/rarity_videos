@@ -12,7 +12,7 @@ export function FloatingVideoDemo() {
         
         <div className="text-center text-white/80 mb-12">
           <p className="text-lg mb-4">
-            Inspired by Roobinium.io's homepage hero section
+            Inspired by Roobinium.io&apos;s homepage hero section
           </p>
           <p className="text-sm opacity-70">
             Drag the video around, hover for effects, and enjoy the autoplay experience

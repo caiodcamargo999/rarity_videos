@@ -22,12 +22,12 @@ export function GradientText({
     copper: "from-[#b45309] via-[#92400e] to-[#78350f]"
   };
 
-  // Enhanced gradients with more contrast
-  const enhancedGradients = {
-    brown: "from-[#f3e9e0] via-[#d7c5b6] to-[#8b7355]",
-    amber: "from-[#fde68a] via-[#fbbf24] to-[#d97706]",
-    copper: "from-[#fbbf24] via-[#b45309] to-[#78350f]"
-  };
+  // Enhanced gradients with more contrast (unused but kept for future use)
+  // const enhancedGradients = {
+  //   brown: "from-[#f3e9e0] via-[#d7c5b6] to-[#8b7355]",
+  //   amber: "from-[#fde68a] via-[#fbbf24] to-[#d97706]",
+  //   copper: "from-[#fbbf24] via-[#b45309] to-[#78350f]"
+  // };
 
   const selectedGradient = gradients[gradient];
 

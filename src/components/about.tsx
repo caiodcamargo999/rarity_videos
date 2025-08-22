@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
-import { Box, VStack, Heading, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, VStack, Text, useColorModeValue } from "@chakra-ui/react";
 import { GradientText } from "./gradient-text";
 
 export function About() {

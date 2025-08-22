@@ -1,7 +1,7 @@
 "use client";
 
 import { useI18n } from "@/lib/i18n";
-import { Box, VStack, Heading, SimpleGrid, Text, Badge, useColorModeValue, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon } from "@chakra-ui/react";
+import { Box, VStack, SimpleGrid, Text, Badge, useColorModeValue, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure, Alert, AlertIcon } from "@chakra-ui/react";
 import { Play, Instagram } from "lucide-react";
 import { useState, useEffect } from "react";
 import { InteractiveCard } from "./interactive-card";
