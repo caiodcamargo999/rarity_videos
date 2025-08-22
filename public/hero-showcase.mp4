@@ -1,0 +1,17 @@
+# Hero Showcase Video Placeholder
+# 
+# This is a placeholder file. In a real project, you would:
+# 1. Replace this with an actual MP4 video file
+# 2. Use a high-quality video showcasing Carolina's work
+# 3. Keep file size reasonable (under 10MB for web)
+# 4. Use MP4 with H.264 codec for best compatibility
+#
+# Recommended specifications:
+# - Format: MP4 (H.264)
+# - Resolution: 1280x720 or 1920x1080
+# - Duration: 10-30 seconds
+# - Content: Showcase of Carolina's video editing work
+# - Style: Professional, engaging, loop-friendly
+#
+# The video will be displayed in a floating container with neon glow effects
+# and will autoplay (muted) on the hero section
