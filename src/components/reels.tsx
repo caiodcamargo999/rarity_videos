@@ -135,11 +135,10 @@ export function Reels({ reels = carolinaReels }: { reels?: Reel[] }) {
             pt={{ base: "4", sm: "6" }}
           >
             {reels.map((r, i) => (
-              <InteractiveCard
-                key={i}
-                hoverEffect="glow"
-                delay={i * 0.1}
-              >
+                             <InteractiveCard
+                 key={i}
+                 hoverEffect="glow"
+               >
                 <Box
                   bg="brand.darkBrown"
                   borderRadius="lg"
