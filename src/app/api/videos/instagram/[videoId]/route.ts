@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { videoId: string } }
+  { params }: { params: Promise<{ videoId: string }> }
 ) {
   try {
-    const { videoId } = params;
+    const { videoId } = await params;
     
     if (!videoId) {
       return NextResponse.json(
@@ -46,10 +46,10 @@ export async function GET(
 // Handle HEAD requests for video metadata
 export async function HEAD(
   request: NextRequest,
-  { params }: { params: { videoId: string } }
+  { params }: { params: Promise<{ videoId: string }> }
 ) {
   try {
-    const { videoId } = params;
+    const { videoId } = await params;
     
     if (!videoId) {
       return new NextResponse(null, { status: 400 });
