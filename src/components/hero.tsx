@@ -72,7 +72,7 @@ export function Hero() {
             style={{ width: "100%" }}
           >
             <Text
-              fontSize={{ base: "sm", sm: "base", lg: "lg" }}
+              fontSize={{ base: "md", sm: "lg", lg: "xl" }}
               opacity="0.9"
               maxW="3xl"
               lineHeight="1.6"
