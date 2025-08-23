@@ -2,8 +2,8 @@
 
 import { useI18n } from "@/lib/i18n";
 import { Box, VStack, SimpleGrid, Text, useColorModeValue, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton, useDisclosure, Center, Badge, HStack, Button } from "@chakra-ui/react";
-import { Play, Instagram, ExternalLink, Volume2, VolumeX, Maximize, Pause } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { Play, Instagram, ExternalLink } from "lucide-react";
+import { useState, useEffect } from "react";
 import { InteractiveCard } from "./interactive-card";
 import { GradientText } from "./gradient-text";
 

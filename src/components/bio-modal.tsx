@@ -3,13 +3,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { X } from "lucide-react";
-import { 
+import {
   Box, 
   Button, 
   Text, 
-  Textarea, 
   VStack, 
-  HStack, 
+  HStack,
   Icon,
   Flex
 } from "@chakra-ui/react";
@@ -22,7 +21,6 @@ interface BioModalProps {
 }
 
 export function BioModal({ type, isOpen, onClose }: BioModalProps) {
-  const [travelInterest, setTravelInterest] = useState("");
   const [showTravelWellnessModal, setShowTravelWellnessModal] = useState(false);
 
   const textColor = "brand.lightBrown";
@@ -50,17 +48,7 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
     onClose();
   };
 
-  const handleTravelSubmit = () => {
-    let message = 'Oi Carol, gostaria de saber mais sobre dicas de viagens e bem estar!';
-    
-    if (travelInterest.trim()) {
-      message += ` Especificamente: ${travelInterest.trim()}`;
-    }
-    
-    const whatsappUrl = `https://wa.me/212777521023?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-    onClose();
-  };
+
 
   const modalContent = {
     realEstate: {
@@ -199,7 +187,7 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
             textAlign="center"
             mb={4}
           >
-            Tell us about your travel and wellness goals, and we'll create a personalized plan for you.
+            Tell us about your travel and wellness goals, and we&apos;ll create a personalized plan for you.
           </Text>
           
           <Button

@@ -8,10 +8,8 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
   Button,
   VStack,
-  HStack,
   Text,
   Input,
   Textarea,
@@ -19,13 +17,11 @@ import {
   FormLabel,
   FormErrorMessage,
   useToast,
-  Box,
-  Badge,
   Icon,
   Center,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { Plane, Heart, Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle } from "lucide-react";
 
 interface TravelWellnessForm {
   aspirations: string;
