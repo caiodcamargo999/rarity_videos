@@ -120,7 +120,7 @@ export async function GET() {
 ```
 videos/ → API Route → Component State → UI Rendering
    ↓           ↓           ↓           ↓
-Static    GET /api/    useState()    Video Grid
+Static    GET /api/    useState()    Video Gallery
 Files     videos       videos[]      Display
 ```
 
@@ -196,7 +196,7 @@ App Layout
 - `hero.tsx`: Main introduction section
 - `about.tsx`: Professional background
 - `videos.tsx`: Portfolio video showcase
-- `reels.tsx`: Social media content
+- `video-gallery.tsx`: Instagram Reels and Native Video Ads showcase
 - `contact.tsx`: Contact information
 
 #### **UI Components**
@@ -209,6 +209,7 @@ App Layout
 - `floating-shapes.tsx`: Background animations
 - `parallax-section.tsx`: Scroll-based animations
 - `floating-video.tsx`: Video hover effects
+- `video-gallery.tsx`: Enhanced video showcase with glassmorphism
 
 ## State Management Architecture
 

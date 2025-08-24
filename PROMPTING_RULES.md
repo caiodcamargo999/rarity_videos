@@ -95,7 +95,7 @@
 - ❌ **Modify existing files** without user permission
 - ❌ **Change color schemes** outside the defined palette
 - ❌ **Alter typography** outside the Inter Tight system
-- ❌ **Modify spacing** outside the defined scale
+- ❌ **Modify spacing** outside the defined scale (unless explicitly requested to modify spacing)
 - ❌ **Change component structure** without approval
 - ❌ **Update styling** without explicit request
 - ❌ **Modify animations** without permission

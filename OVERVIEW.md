@@ -53,6 +53,12 @@
 - Clear call-to-action to explore portfolio work
 - Visual hierarchy emphasizing expertise areas
 
+### **Enhanced Video Gallery**
+- **13 Portfolio Videos**: Direct video showcase from uploaded files
+- **Native Video Player**: Embedded video player with controls
+- **Glassmorphism Design**: Modern UI with backdrop blur effects
+- **Responsive Grid**: Mobile-first responsive video grid layout
+
 ### **About Section**
 - Professional background and experience summary
 - Industry expertise (jewelry, hospitality, real estate, surf schools)
@@ -60,8 +66,9 @@
 
 ### **Portfolio Sections**
 - **Videos**: Professional video editing work samples
-- **Instagram Reels**: Social media content examples
-- **Interactive Elements**: Engaging user experience
+- **Instagram Reels and Native Video Ads**: Comprehensive video showcase with 13 portfolio videos
+- **Interactive Elements**: Engaging user experience with glassmorphism effects
+- **Language Switcher**: Enhanced roobinium.io-style language selector
 
 ### **Contact Section**
 - Professional social media links

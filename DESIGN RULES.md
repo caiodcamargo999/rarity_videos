@@ -90,6 +90,12 @@ md: 768px     /* Medium devices */
 lg: 1024px    /* Large devices */
 xl: 1280px    /* Extra large devices */
 2xl: 1536px   /* 2X large devices */
+
+/* Video Gallery Grid */
+.base: 2      /* Mobile: 2 columns */
+.sm: 3        /* Small devices: 3 columns */
+.lg: 4        /* Large devices: 4 columns */
+.xl: 5        /* Extra large: 5 columns */
 ```
 
 ### **Spacing Scale**
@@ -222,6 +228,8 @@ xl: 1280px    /* Extra large devices */
 - **Smooth Transitions**: Use 0.3s ease for standard interactions
 - **Subtle Effects**: Avoid overwhelming animations
 - **Performance First**: Prioritize 60fps animations
+- **Enhanced Easing**: Use custom easing curves `[0.25, 0.46, 0.45, 0.94]` for professional animations
+- **Optimized Staggering**: Use 0.3s intervals for staggered animations to maintain visual flow
 
 ### **Standard Animations**
 
@@ -235,6 +243,16 @@ xl: 1280px    /* Extra large devices */
 .hover-lift:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Hover Animation */
+.hover-lift-enhanced {
+  transition: all 0.3s ease;
+}
+
+.hover-lift-enhanced:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 }
 ```
 
@@ -366,7 +384,10 @@ xl: 1280px    /* Extra large devices */
 @media (min-width: 1280px) {
   /* Extra large devices and up */
 }
-```
+
+@media (min-width: 1536px) {
+  /* 2X large devices and up */
+}
 
 ### **Responsive Typography**
 ```css
@@ -419,6 +440,29 @@ xl: 1280px    /* Extra large devices */
 3. **Body Content**: Readable text with proper line spacing
 4. **Interactive Elements**: Visually distinct from static content
 
+### **Enhanced Spacing System**
+- **Section Separation**: Use 6-8rem between major sections for better visual breathing room
+- **Content Groups**: Use 2-4rem between related content elements
+- **Text Elements**: Use 1-2rem between text blocks for improved readability
+- **Interactive Elements**: Use 0.5-1rem between buttons/links for optimal touch targets
+- **Responsive Spacing**: Scale spacing progressively from mobile (base) to desktop (xl) breakpoints
+- **Video Grid Spacing**: Use 6-10rem spacing between video cards for optimal visual separation
+- **Modal Spacing**: Implement consistent 6rem padding for video player modals
+- **Video Thumbnail Spacing**: Use 4-8rem spacing between video cards for optimal visual separation
+- **Video Card Dimensions**: Minimum height of 200px (mobile), 240px (tablet), 280px (desktop)
+- **Video Card Aspect Ratio**: 9:16 vertical format (Instagram Reels style)
+- **Thumbnail Container**: Full width and height with `objectFit: "cover"` for proper image display
+- **Camera Icon Badge**: Positioned top-left (top: 4, left: 4) with semi-transparent black background
+- **Play Button Overlay**: Centered with scale animation (0.8 → 1.0) on hover
+
+### **Video Content Structure**
+- **Video Ordering**: Display videos in exact order based on numerical prefixes in filenames (1, 2, 3, etc.)
+- **Title Cleanup**: Remove numerical prefixes from display titles, keeping only professional titles
+- **Client Identification**: Clear client badges for each video (Jamburae, Smart Imob, Rarity)
+- **Thumbnail Integration**: Use actual uploaded thumbnail images with fallback to placeholder design
+- **Video Formats**: Support both .mov and .mp4 formats through API endpoints
+- **API Integration**: Leverage existing `/api/videos/file/[filename]` endpoints for video serving
+
 ### **Content Spacing**
 - **Section Separation**: 6-8rem between major sections
 - **Content Groups**: 2-4rem between related content
@@ -431,12 +475,52 @@ xl: 1280px    /* Extra large devices */
 - **Icon Usage**: Consistent style and sizing
 - **Background Images**: Subtle, non-distracting
 
+### **Logo Symbol Background Guidelines**
+- **Primary Symbol**: Use `logo_symbol_nobackground.png` as the main background element
+- **Full Coverage**: Symbol must cover the entire viewport (100vw × 100vh)
+- **Corner Symbols**: Additional symbols positioned at corners for complete coverage
+- **Brand Integration**: Apply project color palette gradients as overlays
+- **Image Processing**: Use brightness, contrast, and mix-blend-mode filters
+- **Opacity Control**: Maintain 85-90% opacity for dominant visual impact
+- **Responsive Scaling**: Ensure symbols scale properly across all device sizes
+
 ### **Video & Media Guidelines**
 - **Play Button Functionality**: Play buttons must show videos directly on the website, not redirect to external platforms
 - **Embedded Video Player**: Use native video embedding with autoplay support when possible
 - **Video Controls**: Provide standard video controls (play, pause, volume, fullscreen)
 - **Responsive Video**: Ensure videos scale properly across all device sizes
 - **Loading States**: Show loading indicators while videos are buffering
+- **Video Gallery Layout**: Use responsive grid system (2-5 columns) with 9:16 aspect ratio (Instagram Reels format)
+- **Thumbnail Design**: Implement actual video thumbnails with camera icon badges and client identification
+- **Modal Video Player**: Full-screen Instagram Reels style modal with vertical video format and social interaction buttons
+- **Video Player Modal**: Full viewport coverage (100vw × 100vh) with centered vertical container (400px × 600px on desktop)
+- **Social Interaction**: Instagram-style like, comment, and share buttons positioned on the right side
+- **Video Info Display**: Gradient overlay at bottom with title, client badge, and close button
+- **Loading Animation**: Spinning loader with "Loading video..." text during video buffering
+
+### **Instagram Reels Style Video Player**
+- **Modal Configuration**: Full-screen modal (`size="full"`) with complete viewport coverage
+- **Video Container**: Vertical format container (400px × 600px on desktop, full viewport on mobile)
+- **Video Display**: `objectFit: "contain"` for proper aspect ratio preservation without cropping
+- **Social Interaction Buttons**: Right-side positioned like, comment, and share buttons with Instagram-style design
+- **Like Button Functionality**: Interactive heart icon with red fill when liked, white outline when not liked
+- **Button Styling**: Semi-transparent black backgrounds (`blackAlpha.400`) with hover effects (`blackAlpha.600`)
+- **Video Info Overlay**: Bottom gradient overlay (`linear-gradient(transparent, rgba(0,0,0,0.8))`) for text readability
+- **Close Button**: Ghost button with white text and subtle hover effects
+- **Loading States**: Comprehensive error handling with console logging for debugging video loading issues
+
+### **Enhanced Social Features**
+- **Persistent Likes System**: Likes are stored in localStorage and persist across sessions, displaying actual like counts
+- **Comment System**: Full-featured comment system with user names, timestamps, and moderation
+- **Comment Moderation**: Automatic filtering of inappropriate language using comprehensive bad words filter
+- **Share Functionality**: Native sharing API with clipboard fallback for portfolio link distribution
+- **Real-time Counters**: Live display of like and comment counts on video thumbnails and modal
+
+### **Improved Video Content Display**
+- **Subtitle Integration**: Added descriptive subtitles for each video to provide context and improve user understanding
+- **Better Typography Hierarchy**: Improved spacing between titles and subtitles to prevent text overlap
+- **Enhanced Thumbnail Layout**: Optimized spacing and sizing for better readability of video information
+- **Responsive Text Scaling**: Dynamic font sizing that adapts to different screen sizes and content lengths
 
 ## Performance Considerations
 
@@ -454,6 +538,13 @@ xl: 1280px    /* Extra large devices */
 - **Critical CSS**: Inline critical styles
 - **Unused CSS**: Remove unused styles in production
 - **CSS Variables**: Use for consistent theming
+
+### **Data Persistence & Storage**
+- **Local Storage Integration**: User interactions (likes, comments) are automatically saved to browser localStorage
+- **Session Persistence**: All social interactions persist across browser sessions and page refreshes
+- **Data Structure**: Organized storage system with video IDs as keys and structured data objects
+- **Future Database Ready**: Current localStorage implementation is structured for easy migration to backend database
+- **Error Handling**: Comprehensive error handling for storage operations with graceful fallbacks
 
 ## Design System Maintenance
 
