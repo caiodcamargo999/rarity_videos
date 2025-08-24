@@ -13,6 +13,7 @@ import {
   Flex
 } from "@chakra-ui/react";
 import { TravelWellnessModal } from "./travel-wellness-modal";
+import { useI18n } from "@/lib/i18n";
 
 interface BioModalProps {
   type: "realEstate" | "travel";
@@ -21,6 +22,7 @@ interface BioModalProps {
 }
 
 export function BioModal({ type, isOpen, onClose }: BioModalProps) {
+  const { t } = useI18n();
   const [showTravelWellnessModal, setShowTravelWellnessModal] = useState(false);
 
   const textColor = "brand.lightBrown";
@@ -31,16 +33,16 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
     
     switch (option) {
       case "bali":
-        message = "Hey Carolina, I want to know about opportunities on Real Estate in Bali";
+        message = t("whatsappBaliMessage");
         break;
       case "dubai":
-        message = "Hey Carolina, I want to know about opportunities on Real Estate in Dubai";
+        message = t("whatsappDubaiMessage");
         break;
       case "brazil":
-        message = "Hey Carolina, I want to know about opportunities on Real Estate in Brazil";
+        message = t("whatsappBrazilMessage");
         break;
       default:
-        message = "Hey Carolina, I want to know about Real Estate opportunities";
+        message = t("whatsappBaliMessage"); // Fallback to Bali message
     }
     
     const whatsappUrl = `https://wa.me/212777521023?text=${encodeURIComponent(message)}`;
@@ -52,8 +54,8 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
 
   const modalContent = {
     realEstate: {
-      title: "Real Estate Investment Opportunities",
-      subtitle: "Select your preferred investment destination to explore exclusive opportunities",
+      title: t("realEstateModalTitle"),
+      subtitle: t("realEstateModalSubtitle"),
       content: (
         <VStack spacing={4} w="full">
           <Button
@@ -79,7 +81,7 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
               <HStack spacing={4} align="center" mb={2}>
                 <Text fontSize="2xl">🇮🇩</Text>
                 <Text fontSize="lg" fontWeight="400" color={textColor}>
-                  Bali
+                  {t("baliTitle")}
                 </Text>
               </HStack>
               <Text 
@@ -90,7 +92,7 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
                 whiteSpace="normal"
                 textAlign="left"
               >
-                Emerging market with high growth potential and attractive yields.
+                {t("baliDescription")}
               </Text>
             </Flex>
           </Button>
@@ -118,7 +120,7 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
               <HStack spacing={4} align="center" mb={2}>
                 <Text fontSize="2xl">🇦🇪</Text>
                 <Text fontSize="lg" fontWeight="400" color={textColor}>
-                  Dubai
+                  {t("dubaiTitle")}
                 </Text>
               </HStack>
               <Text 
@@ -129,7 +131,7 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
                 whiteSpace="normal"
                 textAlign="left"
               >
-                Luxury real estate hub with tax advantages and world-class infrastructure.
+                {t("dubaiDescription")}
               </Text>
             </Flex>
           </Button>
@@ -157,7 +159,7 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
               <HStack spacing={4} align="center" mb={2}>
                 <Text fontSize="2xl">🇧🇷</Text>
                 <Text fontSize="lg" fontWeight="400" color={textColor}>
-                  Brazil
+                  {t("brazilTitle")}
                 </Text>
               </HStack>
               <Text 
@@ -168,7 +170,7 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
                 whiteSpace="normal"
                 textAlign="left"
               >
-                Diverse market opportunities with strong fundamentals and growth prospects.
+                {t("brazilDescription")}
               </Text>
             </Flex>
           </Button>
@@ -176,8 +178,8 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
       )
     },
     travel: {
-      title: "Travel & Wellness Consulting",
-      subtitle: "Plan your dream trips and take care of your wellness with specialized consulting.",
+      title: t("travelWellnessModalTitle"),
+      subtitle: t("travelWellnessModalSubtitle"),
       content: (
         <VStack spacing={6} w="full">
           <Text 
@@ -187,7 +189,7 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
             textAlign="center"
             mb={4}
           >
-            Tell us about your travel and wellness goals, and we&apos;ll create a personalized plan for you.
+            {t("travelWellnessModalDescription")}
           </Text>
           
           <Button
@@ -208,7 +210,7 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
             _active={{ transform: "scale(0.98)" }}
             transition="all 0.3s ease"
           >
-            Start Consultation
+            {t("startConsultation")}
           </Button>
         </VStack>
       )

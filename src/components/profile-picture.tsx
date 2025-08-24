@@ -14,6 +14,8 @@ export function ProfilePicture({ src, alt, size = "lg" }: ProfilePictureProps) {
   const borderColor = useColorModeValue("brand.lightBrown", "brand.lightBrown");
   const [imageError, setImageError] = useState(false);
   
+
+  
   const sizeMap = {
     sm: { base: "80px", sm: "100px", lg: "120px" },
     md: { base: "100px", sm: "120px", lg: "140px" },
@@ -37,7 +39,7 @@ export function ProfilePicture({ src, alt, size = "lg" }: ProfilePictureProps) {
         background={`linear-gradient(135deg, ${borderColor}, transparent)`}
       >
         <Avatar
-          src={imageError ? undefined : src}
+          src={imageError ? "/profile_picture_carolina.png" : src}
           name={alt}
           size="full"
           width={currentSize}

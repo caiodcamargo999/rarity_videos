@@ -1,52 +1,93 @@
 "use client";
 
-import { Suspense } from "react";
-import { useI18n } from "@/lib/i18n";
-import { Box, Container, Flex, VStack, Skeleton } from "@chakra-ui/react";
 import { BioProfile } from "@/components/bio-profile";
-import { BioLinks } from "@/components/bio-links";
 import { BioMission } from "@/components/bio-mission";
+import { BioLinks } from "@/components/bio-links";
 import { BioFooter } from "@/components/bio-footer";
-import { LanguageDropdown } from "@/components/language-dropdown";
+import { Box, VStack } from "@chakra-ui/react";
+import { LanguageSwitcher } from "@/components/language-switcher";
 
 export default function BioPage() {
-  const { dir } = useI18n();
-
   return (
-    <Box minH="100vh" bg="brand.darkBrown" position="relative" overflow="hidden" dir={dir}>
+    <Box
+      className="min-h-screen w-full bg-background text-foreground"
+      p={{ base: 4, md: 6 }}
+      position="relative"
+      overflowX="hidden"
+    >
+      {/* Background with Logo Symbol */}
       <Box
         position="fixed"
-        top="0"
-        left="0"
-        right="0"
-        bottom="0"
-        bgGradient="linear(to-br, #1c1511, #2a211c, #1c1511)"
+        inset={0}
+        bg="linear-gradient(135deg, #1c1511 0%, #2a211c 50%, #1c1511 100%)"
         opacity={1}
+        zIndex={0}
       />
       
-      <Container maxW="6xl" centerContent position="relative" zIndex="1" py={{ base: 12, md: 16 }}>
-        <Flex justifyContent="flex-end" w="full" px={{ base: 4, md: 6 }} pb={{ base: 8, md: 10 }}>
-          <LanguageDropdown />
-        </Flex>
+      {/* Logo Symbol Background - Single Central Symbol */}
+      <Box
+        position="fixed"
+        inset={0}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        pointerEvents="none"
+        zIndex={1}
+      >
+        <Box
+          as="img"
+          src="/logo_symbol_nobackground.png"
+          alt="Carolina de Abreu Logo Symbol"
+          w="full"
+          h="full"
+          objectFit="cover"
+          opacity={0.85}
+          filter="brightness(0.8) contrast(1.2)"
+          mixBlendMode="multiply"
+        />
+      </Box>
+      
+      {/* Enhanced Glassmorphism Overlay */}
+      <Box
+        position="fixed"
+        inset={0}
+        bg="linear-gradient(135deg, rgba(28, 21, 17, 0.9) 0%, rgba(42, 33, 28, 0.7) 50%, rgba(28, 21, 17, 0.9) 100%)"
+        backdropFilter="blur(2px)"
+        zIndex={2}
+      />
+      <Box
+        position="fixed"
+        inset={0}
+        bg="linear-gradient(135deg, rgba(28, 21, 17, 0.6) 0%, rgba(42, 33, 28, 0.4) 50%, rgba(28, 21, 17, 0.6) 100%)"
+        backdropFilter="blur(1px)"
+        zIndex={3}
+      />
+      
+      <Box position="absolute" top={{ base: 4, md: 6 }} right={{ base: 4, md: 6 }} zIndex="docked">
+        <LanguageSwitcher />
+      </Box>
+
+      <VStack
+        spacing={{ base: 6, md: 8 }}
+        w="full"
+        maxW="2xl"
+        mx="auto"
+        py={{ base: 8, md: 12 }}
+        position="relative"
+        zIndex={4}
+      >
+        {/* 1. PROFILE SECTION - Avatar, Name, Motto */}
+        <BioProfile />
         
-        <VStack spacing={{ base: 10, md: 12 }} w="full" maxW="container.md">
-          <Suspense fallback={<Skeleton h="250px" w="full" rounded="xl" />}>
-            <BioProfile />
-          </Suspense>
-          
-          <Suspense fallback={<Skeleton h="400px" w="full" rounded="xl" />}>
-            <BioLinks />
-          </Suspense>
-          
-          <Suspense fallback={<Skeleton h="150px" w="full" rounded="xl" />}>
-            <BioMission />
-          </Suspense>
-          
-          <Suspense fallback={<Skeleton h="100px" w="full" rounded="xl" />}>
-            <BioFooter />
-          </Suspense>
-        </VStack>
-      </Container>
+        {/* 2. LINKS SECTION - Service Cards */}
+        <BioLinks />
+        
+        {/* 3. MISSION SECTION - Purpose Statement */}
+        <BioMission />
+        
+        {/* 4. FOOTER SECTION - Copyright & Socials */}
+        <BioFooter />
+      </VStack>
     </Box>
   );
 }

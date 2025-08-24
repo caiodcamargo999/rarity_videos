@@ -35,7 +35,7 @@ export function Hero() {
           mb={{ base: "6", lg: "0" }}
         >
           <ProfilePicture
-            src="/profile_picture_carolina.png"
+            src="/profile_new.png"
             alt="Carolina de Abreu"
             size="xl"
           />

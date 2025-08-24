@@ -64,9 +64,9 @@ export function BioLinks() {
     },
     {
       id: "socialMedia",
-      title: "Social Media Portfolio",
-      description: "Explore Carolina's creative work in video editing, copywriting & storytelling that drives real results",
-      cta: "View Portfolio",
+      title: t("bioSocialMediaPortfolio"),
+      description: t("bioSocialMediaPortfolioDesc"),
+      cta: t("bioViewPortfolio"),
       type: "link",
       href: "/socialmedia"
     }
