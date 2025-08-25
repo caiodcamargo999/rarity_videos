@@ -29,14 +29,14 @@ export class BlobService {
         token: process.env.BLOB_READ_WRITE_TOKEN,
         // Overwrite if it already exists
         allowOverwrite: true,
-      } as any);
+      });
 
       return {
         url: blob.url,
         filename: blob.pathname,
         title: this.cleanTitle(filename),
-        size: blob.size,
-        uploadedAt: new Date(blob.uploadedAt),
+        size: fileBuffer.length, // Use the actual buffer size
+        uploadedAt: new Date(), // Use current timestamp
       };
     } catch (error) {
       console.error('Error uploading video to blob:', error);
@@ -46,7 +46,7 @@ export class BlobService {
 
   async listVideos(): Promise<BlobVideo[]> {
     try {
-      const { blobs } = await list({ token: process.env.BLOB_READ_WRITE_TOKEN } as any);
+      const { blobs } = await list({ token: process.env.BLOB_READ_WRITE_TOKEN });
       
       return blobs
         .filter(blob => this.isVideoFile(blob.pathname))
@@ -66,7 +66,7 @@ export class BlobService {
 
   async deleteVideo(filename: string): Promise<void> {
     try {
-      await del(filename, { token: process.env.BLOB_READ_WRITE_TOKEN } as any);
+      await del(filename, { token: process.env.BLOB_READ_WRITE_TOKEN });
     } catch (error) {
       console.error('Error deleting video from blob:', error);
       throw new Error(`Failed to delete video: ${error}`);
@@ -75,7 +75,7 @@ export class BlobService {
 
   async getVideoInfo(filename: string): Promise<BlobVideo | null> {
     try {
-      const blob = await head(filename, { token: process.env.BLOB_READ_WRITE_TOKEN } as any);
+      const blob = await head(filename, { token: process.env.BLOB_READ_WRITE_TOKEN });
       if (!blob) return null;
 
       return {

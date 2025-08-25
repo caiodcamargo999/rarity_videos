@@ -12,7 +12,7 @@ const languages = [
 ];
 
 export function LanguageSwitcher() {
-  const { t, setLocale, locale } = useI18n();
+  const { setLocale, locale } = useI18n();
   const textColor = useColorModeValue("brand.lightBrown", "brand.lightBrown");
 
   return (

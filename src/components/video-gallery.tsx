@@ -31,7 +31,7 @@ type VideoStats = {
 
 // Video data with subtitles - ordered by filename numbers
 // This will be replaced by dynamic data from blob storage
-const portfolioVideos: VideoItem[] = [];
+// const portfolioVideos: VideoItem[] = []; // Removed unused variable
 
 // Helper functions for video metadata
 const getVideoSubtitle = (title: string): string => {
@@ -126,7 +126,7 @@ export function VideoGallery() {
         const data = await response.json();
         
         // Transform blob data to match our VideoItem interface
-        const transformedVideos = data.map((video: any) => ({
+        const transformedVideos = data.map((video: { src: string; title: string; filename: string; size: number; uploadedAt: string }) => ({
           src: video.src,
           title: video.title,
           subtitle: getVideoSubtitle(video.title), // Generate subtitle based on title
