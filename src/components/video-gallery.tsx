@@ -35,16 +35,16 @@ const portfolioVideos: VideoItem[] = [
     title: "Jamburae Surf",
     subtitle: "Professional surf coaching and island adventures",
     client: "Jamburae",
-    src: "/api/videos/file/1 - Jamburae Surf_.mov",
-    filename: "1 - Jamburae Surf_.mov",
+    src: "/api/videos/file/1 - Jamburae Surf .mp4",
+    filename: "1 - Jamburae Surf .mp4",
     thumbnail: "/thumbnails/1 - Surf Nias.jpg"
   },
   {
     title: "Nias Island Adventure",
     subtitle: "Exploring the beauty of Indonesian surf paradise",
     client: "Jamburae",
-    src: "/api/videos/file/2 Fun in Nias Island_.mp4",
-    filename: "2 Fun in Nias Island_.mp4",
+    src: "/api/videos/file/2 - Fun In Nias.mp4",
+    filename: "2 - Fun In Nias.mp4",
     thumbnail: "/thumbnails/2 - Fun in Indonesia.jpg"
   },
   {
@@ -59,8 +59,8 @@ const portfolioVideos: VideoItem[] = [
     title: "Jamburae Surf",
     subtitle: "Advanced surf techniques and island lifestyle",
     client: "Jamburae",
-    src: "/api/videos/file/4 - Jamburae  Surf.mov",
-    filename: "4 - Jamburae  Surf.mov",
+    src: "/api/videos/file/4 - Jamburae Surf.mp4",
+    filename: "4 - Jamburae Surf.mp4",
     thumbnail: "/thumbnails/4 - Surf Nias_.jpg"
   },
   {
@@ -107,16 +107,16 @@ const portfolioVideos: VideoItem[] = [
     title: "Real Estate Florianópolis",
     subtitle: "Exclusive properties in Brazil's surf capital",
     client: "Smart Imob",
-    src: "/api/videos/file/10 - Real Estate Floripa_.mp4",
-    filename: "10 - Real Estate Floripa_.mp4",
+    src: "/api/videos/file/10 - Smart Imob.mp4",
+    filename: "10 - Smart Imob.mp4",
     thumbnail: "/thumbnails/10 - Smart Imob Centro Floripa.jpg"
   },
   {
     title: "Surf Island Experience",
     subtitle: "Complete surf immersion on Nias Island",
     client: "Jamburae",
-    src: "/api/videos/file/11 - Surf island_.mp4",
-    filename: "11 - Surf island_.mp4",
+    src: "/api/videos/file/11 - Surf Nias.mp4",
+    filename: "11 - Surf Nias.mp4",
     thumbnail: "/thumbnails/11 - Surf Nias.jpg"
   },
   {
@@ -131,8 +131,8 @@ const portfolioVideos: VideoItem[] = [
     title: "Real Estate Florianópolis",
     subtitle: "Premium investment opportunities in Brazil",
     client: "Smart Imob",
-    src: "/api/videos/file/13 - Real Estate Florianópolis.mp4",
-    filename: "13 - Real Estate Florianópolis.mp4",
+    src: "/api/videos/file/13 - Smart Imob.mp4",
+    filename: "13 - Smart Imob.mp4",
     thumbnail: "/thumbnails/13- Smart Imob.jpg"
   }
 ];
