@@ -30,112 +30,62 @@ type VideoStats = {
 };
 
 // Video data with subtitles - ordered by filename numbers
-const portfolioVideos: VideoItem[] = [
-  {
-    title: "Jamburae Surf",
-    subtitle: "Professional surf coaching and island adventures",
-    client: "Jamburae",
-    src: "/videos/1 - Jamburae Surf _compressed.mp4",
-    filename: "1 - Jamburae Surf _compressed.mp4",
-    thumbnail: "/thumbnails/1 - Surf Nias.jpg"
-  },
-  {
-    title: "Nias Island Adventure",
-    subtitle: "Exploring the beauty of Indonesian surf paradise",
-    client: "Jamburae",
-    src: "/videos/2 - Fun In Nias.mp4",
-    filename: "2 - Fun In Nias.mp4",
-    thumbnail: "/thumbnails/2 - Fun in Indonesia.jpg"
-  },
-  {
-    title: "Real Estate Showcase",
-    subtitle: "Premium properties in Florianópolis",
-    client: "Smart Imob",
-    src: "/videos/3 - Real Estate_.mp4",
-    filename: "3 - Real Estate_.mp4",
-    thumbnail: "/thumbnails/3 - Smart Imob Florianopolis.jpg"
-  },
-  {
-    title: "Jamburae Surf",
-    subtitle: "Advanced surf techniques and island lifestyle",
-    client: "Jamburae",
-    src: "/videos/4 - Jamburae Surf.mp4",
-    filename: "4 - Jamburae Surf.mp4",
-    thumbnail: "/thumbnails/4 - Surf Nias_.jpg"
-  },
-  {
-    title: "Jamburae Owner Interview - Part 1",
-    subtitle: "Behind the scenes with the founder",
-    client: "Jamburae",
-    src: "/videos/5 - Jamburae - Owner part 1_github_ready.mp4",
-    filename: "5 - Jamburae - Owner part 1_github_ready.mp4",
-    thumbnail: "/thumbnails/5 - Sit part 1.jpg"
-  },
-  {
-    title: "Jamburae Owner Interview - Part 2",
-    subtitle: "Continuing the conversation about surf culture",
-    client: "Jamburae",
-    src: "/videos/6 - Jamburae - Onwer part 2_github_ready.mp4",
-    filename: "6 - Jamburae - Onwer part 2_github_ready.mp4",
-    thumbnail: "/thumbnails/6 - Sit part 2_.jpg"
-  },
-  {
-    title: "Guest Experience Review",
-    subtitle: "Real stories from our surf school guests",
-    client: "Jamburae",
-    src: "/videos/7 - Guest Review_compressed.mp4",
-    filename: "7 - Guest Review_compressed.mp4",
-    thumbnail: "/thumbnails/7 - Guest Review.jpg"
-  },
-  {
-    title: "Rarity Agency Showcase",
-    subtitle: "Innovative marketing solutions for luxury brands",
-    client: "Rarity",
-    src: "/videos/8- Rarity Agency_compressed.mp4",
-    filename: "8- Rarity Agency_compressed.mp4",
-    thumbnail: "/thumbnails/8 - Rarity Agency.jpg"
-  },
-  {
-    title: "Jamburae Boat Experience",
-    subtitle: "Ocean adventures and marine exploration",
-    client: "Jamburae",
-    src: "/videos/9 - Jamburae  BOAT_compressed.mp4",
-    filename: "9 - Jamburae  BOAT_compressed.mp4",
-    thumbnail: "/thumbnails/9 - Jamburae Boat.jpeg"
-  },
-  {
-    title: "Real Estate Florianópolis",
-    subtitle: "Exclusive properties in Brazil's surf capital",
-    client: "Smart Imob",
-    src: "/videos/10 - Smart Imob.mp4",
-    filename: "10 - Smart Imob.mp4",
-    thumbnail: "/thumbnails/10 - Smart Imob Centro Floripa.jpg"
-  },
-  {
-    title: "Surf Island Experience",
-    subtitle: "Complete surf immersion on Nias Island",
-    client: "Jamburae",
-    src: "/videos/11 - Surf Nias.mp4",
-    filename: "11 - Surf Nias.mp4",
-    thumbnail: "/thumbnails/11 - Surf Nias.jpg"
-  },
-  {
-    title: "Rarity Owner Interview",
-    subtitle: "Insights into modern marketing strategies",
-    client: "Rarity",
-    src: "/videos/12 - Rarity Owner.mp4",
-    filename: "12 - Rarity Owner.mp4",
-    thumbnail: "/thumbnails/12 - Rarity Owner.jpg"
-  },
-  {
-    title: "Real Estate Florianópolis",
-    subtitle: "Premium investment opportunities in Brazil",
-    client: "Smart Imob",
-    src: "/videos/13 - Smart Imob.mp4",
-    filename: "13 - Smart Imob.mp4",
-    thumbnail: "/thumbnails/13- Smart Imob.jpg"
+// This will be replaced by dynamic data from blob storage
+const portfolioVideos: VideoItem[] = [];
+
+// Helper functions for video metadata
+const getVideoSubtitle = (title: string): string => {
+  const subtitleMap: Record<string, string> = {
+    'Jamburae Surf': 'Professional surf coaching and island adventures',
+    'Fun In Nias': 'Exploring the beauty of Indonesian surf paradise',
+    'Real Estate': 'Premium properties in Florianópolis',
+    'Jamburae - Owner part 1': 'Behind the scenes with the founder',
+    'Jamburae - Onwer part 2': 'Continuing the conversation about surf culture',
+    'Guest Review': 'Real stories from our surf school guests',
+    'Rarity Agency': 'Innovative marketing solutions for luxury brands',
+    'Jamburae BOAT': 'Ocean adventures and marine exploration',
+    'Smart Imob': 'Exclusive properties in Brazil\'s surf capital',
+    'Surf Nias': 'Complete surf immersion on Nias Island',
+    'Rarity Owner': 'Insights into modern marketing strategies'
+  };
+  
+  // Find the best match
+  for (const [key, subtitle] of Object.entries(subtitleMap)) {
+    if (title.includes(key) || key.includes(title)) {
+      return subtitle;
+    }
   }
-];
+  
+  return 'Professional video content'; // Default subtitle
+};
+
+const getVideoClient = (title: string): string => {
+  if (title.includes('Jamburae')) return 'Jamburae';
+  if (title.includes('Smart Imob') || title.includes('Real Estate')) return 'Smart Imob';
+  if (title.includes('Rarity')) return 'Rarity';
+  return 'Portfolio'; // Default client
+};
+
+const getVideoThumbnail = (filename: string): string => {
+  // Map filenames to existing thumbnails
+  const thumbnailMap: Record<string, string> = {
+    '1 - Jamburae Surf _compressed.mp4': '/thumbnails/1 - Surf Nias.jpg',
+    '2 - Fun In Nias.mp4': '/thumbnails/2 - Fun in Indonesia.jpg',
+    '3 - Real Estate_.mp4': '/thumbnails/3 - Smart Imob Florianopolis.jpg',
+    '4 - Jamburae Surf.mp4': '/thumbnails/4 - Surf Nias_.jpg',
+    '5 - Jamburae - Owner part 1_github_ready.mp4': '/thumbnails/5 - Sit part 1.jpg',
+    '6 - Jamburae - Onwer part 2_github_ready.mp4': '/thumbnails/6 - Sit part 2_.jpg',
+    '7 - Guest Review_compressed.mp4': '/thumbnails/7 - Guest Review.jpg',
+    '8- Rarity Agency_compressed.mp4': '/thumbnails/8 - Rarity Agency.jpg',
+    '9 - Jamburae  BOAT_compressed.mp4': '/thumbnails/9 - Jamburae Boat.jpeg',
+    '10 - Smart Imob.mp4': '/thumbnails/10 - Smart Imob Centro Floripa.jpg',
+    '11 - Surf Nias.mp4': '/thumbnails/11 - Surf Nias.jpg',
+    '12 - Rarity Owner.mp4': '/thumbnails/12 - Rarity Owner.jpg',
+    '13- Smart Imob.mp4': '/thumbnails/13- Smart Imob.jpg'
+  };
+  
+  return thumbnailMap[filename] || '/thumbnails/1 - Surf Nias.jpg'; // Default thumbnail
+};
 
 // Bad words filter for comment moderation
 const BAD_WORDS = [
@@ -157,9 +107,48 @@ export function VideoGallery() {
   const [commentText, setCommentText] = useState("");
   const [commentAuthor, setCommentAuthor] = useState("");
   const [showComments, setShowComments] = useState(false);
+  const [videos, setVideos] = useState<VideoItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const toast = useToast();
 
 
+
+  // Fetch videos from blob storage API
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('/api/videos');
+        if (!response.ok) {
+          throw new Error(`Failed to fetch videos: ${response.status}`);
+        }
+        const data = await response.json();
+        
+        // Transform blob data to match our VideoItem interface
+        const transformedVideos = data.map((video: any) => ({
+          src: video.src,
+          title: video.title,
+          subtitle: getVideoSubtitle(video.title), // Generate subtitle based on title
+          client: getVideoClient(video.title), // Determine client based on title
+          filename: video.filename,
+          thumbnail: getVideoThumbnail(video.filename) // Map to existing thumbnails
+        }));
+        
+        setVideos(transformedVideos);
+        setError(null);
+      } catch (error) {
+        console.error('Error fetching videos:', error);
+        setError('Failed to load videos');
+        // Fallback to empty array
+        setVideos([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVideos();
+  }, []);
 
   // Load video stats from localStorage on component mount
   useEffect(() => {
@@ -387,13 +376,31 @@ export function VideoGallery() {
             </Text>
           </Box>
 
+          {/* Loading State */}
+          {loading && (
+            <Box textAlign="center" py="12" gridColumn="1 / -1">
+              <Text color={textColor} opacity="0.7">
+                Loading videos from cloud storage...
+              </Text>
+            </Box>
+          )}
+
+          {/* Error State */}
+          {error && (
+            <Box textAlign="center" py="12" gridColumn="1 / -1">
+              <Text color="red.400" opacity="0.7">
+                {error}
+              </Text>
+            </Box>
+          )}
+
           {/* Video Grid */}
           <SimpleGrid
             columns={{ base: 2, sm: 3, lg: 4, xl: 5 }}
             spacing={{ base: "4", sm: "6", lg: "8" }}
             w="full"
           >
-                        {portfolioVideos.map((video) => (
+            {videos.map((video) => (
               <InteractiveCard key={video.filename}>
                 <Box
                   w="full"

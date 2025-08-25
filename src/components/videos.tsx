@@ -5,7 +5,13 @@ import { useI18n } from "@/lib/i18n";
 import { Box, VStack, Heading, SimpleGrid, Text, useColorModeValue, Spinner } from "@chakra-ui/react";
 import { Play, Camera } from "lucide-react";
 
-type VideoItem = { src: string; title?: string };
+type VideoItem = { 
+  src: string; 
+  title?: string;
+  filename?: string;
+  size?: number;
+  uploadedAt?: Date;
+};
 
 export function Videos() {
   const { t } = useI18n();
