@@ -35,8 +35,8 @@ const portfolioVideos: VideoItem[] = [
     title: "Jamburae Surf",
     subtitle: "Professional surf coaching and island adventures",
     client: "Jamburae",
-    src: "/videos/1 - Jamburae Surf .mp4",
-    filename: "1 - Jamburae Surf .mp4",
+    src: "/videos/1 - Jamburae Surf _compressed.mp4",
+    filename: "1 - Jamburae Surf _compressed.mp4",
     thumbnail: "/thumbnails/1 - Surf Nias.jpg"
   },
   {
@@ -83,24 +83,24 @@ const portfolioVideos: VideoItem[] = [
     title: "Guest Experience Review",
     subtitle: "Real stories from our surf school guests",
     client: "Jamburae",
-    src: "/videos/7 - Guest Review.mp4",
-    filename: "7 - Guest Review.mp4",
+    src: "/videos/7 - Guest Review_compressed.mp4",
+    filename: "7 - Guest Review_compressed.mp4",
     thumbnail: "/thumbnails/7 - Guest Review.jpg"
   },
   {
     title: "Rarity Agency Showcase",
     subtitle: "Innovative marketing solutions for luxury brands",
     client: "Rarity",
-    src: "/videos/8- Rarity Agency_github_ready.mp4",
-    filename: "8- Rarity Agency_github_ready.mp4",
+    src: "/videos/8- Rarity Agency_compressed.mp4",
+    filename: "8- Rarity Agency_compressed.mp4",
     thumbnail: "/thumbnails/8 - Rarity Agency.jpg"
   },
   {
     title: "Jamburae Boat Experience",
     subtitle: "Ocean adventures and marine exploration",
     client: "Jamburae",
-    src: "/videos/9 - Jamburae  BOAT_github_ready.mp4",
-    filename: "9 - Jamburae  BOAT_github_ready.mp4",
+    src: "/videos/9 - Jamburae  BOAT_compressed.mp4",
+    filename: "9 - Jamburae  BOAT_compressed.mp4",
     thumbnail: "/thumbnails/9 - Jamburae Boat.jpeg"
   },
   {
