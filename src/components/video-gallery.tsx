@@ -67,16 +67,16 @@ const portfolioVideos: VideoItem[] = [
     title: "Jamburae Owner Interview - Part 1",
     subtitle: "Behind the scenes with the founder",
     client: "Jamburae",
-    src: "/api/videos/file/5 - Jamburae - Owner part 1.mov",
-    filename: "5 - Jamburae - Owner part 1.mov",
+    src: "/api/videos/file/5 - Jamburae - Owner part 1_github_ready.mp4",
+    filename: "5 - Jamburae - Owner part 1_github_ready.mp4",
     thumbnail: "/thumbnails/5 - Sit part 1.jpg"
   },
   {
     title: "Jamburae Owner Interview - Part 2",
     subtitle: "Continuing the conversation about surf culture",
     client: "Jamburae",
-    src: "/api/videos/file/6 - Jamburae - Onwer part 2.mov",
-    filename: "6 - Jamburae - Onwer part 2.mov",
+    src: "/api/videos/file/6 - Jamburae - Onwer part 2_github_ready.mp4",
+    filename: "6 - Jamburae - Onwer part 2_github_ready.mp4",
     thumbnail: "/thumbnails/6 - Sit part 2_.jpg"
   },
   {
@@ -91,16 +91,16 @@ const portfolioVideos: VideoItem[] = [
     title: "Rarity Agency Showcase",
     subtitle: "Innovative marketing solutions for luxury brands",
     client: "Rarity",
-    src: "/api/videos/file/8- Rarity Agency_.mov",
-    filename: "8- Rarity Agency_.mov",
+    src: "/api/videos/file/8- Rarity Agency_github_ready.mp4",
+    filename: "8- Rarity Agency_github_ready.mp4",
     thumbnail: "/thumbnails/8 - Rarity Agency.jpg"
   },
   {
     title: "Jamburae Boat Experience",
     subtitle: "Ocean adventures and marine exploration",
     client: "Jamburae",
-    src: "/api/videos/file/9 - Jamburae  BOAT.mov",
-    filename: "9 - Jamburae  BOAT.mov",
+    src: "/api/videos/file/9 - Jamburae  BOAT_github_ready.mp4",
+    filename: "9 - Jamburae  BOAT_github_ready.mp4",
     thumbnail: "/thumbnails/9 - Jamburae Boat.jpeg"
   },
   {
