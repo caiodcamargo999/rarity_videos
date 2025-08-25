@@ -159,10 +159,7 @@ export function VideoGallery() {
   const [showComments, setShowComments] = useState(false);
   const toast = useToast();
 
-  // Debug logging
-  console.log("VideoGallery component rendering");
-  console.log("portfolioVideos:", portfolioVideos);
-  console.log("portfolioVideos length:", portfolioVideos.length);
+
 
   // Load video stats from localStorage on component mount
   useEffect(() => {
@@ -340,11 +337,6 @@ export function VideoGallery() {
 
   return (
     <>
-      {/* Debug Info */}
-      <Box p={4} bg="red.500" color="white" textAlign="center">
-        DEBUG: VideoGallery Component is rendering! Videos count: {portfolioVideos.length}
-      </Box>
-      
       <Box
         as="section"
         px={{ base: "6", sm: "8", lg: "8" }}
