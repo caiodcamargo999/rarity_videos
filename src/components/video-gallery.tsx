@@ -35,7 +35,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Jamburae Surf",
     subtitle: "Professional surf coaching and island adventures",
     client: "Jamburae",
-    src: "/api/videos/file/1 - Jamburae Surf .mp4",
+    src: "/videos/1 - Jamburae Surf .mp4",
     filename: "1 - Jamburae Surf .mp4",
     thumbnail: "/thumbnails/1 - Surf Nias.jpg"
   },
@@ -43,7 +43,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Nias Island Adventure",
     subtitle: "Exploring the beauty of Indonesian surf paradise",
     client: "Jamburae",
-    src: "/api/videos/file/2 - Fun In Nias.mp4",
+    src: "/videos/2 - Fun In Nias.mp4",
     filename: "2 - Fun In Nias.mp4",
     thumbnail: "/thumbnails/2 - Fun in Indonesia.jpg"
   },
@@ -51,7 +51,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Real Estate Showcase",
     subtitle: "Premium properties in Florianópolis",
     client: "Smart Imob",
-    src: "/api/videos/file/3 - Real Estate_.mp4",
+    src: "/videos/3 - Real Estate_.mp4",
     filename: "3 - Real Estate_.mp4",
     thumbnail: "/thumbnails/3 - Smart Imob Florianopolis.jpg"
   },
@@ -59,7 +59,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Jamburae Surf",
     subtitle: "Advanced surf techniques and island lifestyle",
     client: "Jamburae",
-    src: "/api/videos/file/4 - Jamburae Surf.mp4",
+    src: "/videos/4 - Jamburae Surf.mp4",
     filename: "4 - Jamburae Surf.mp4",
     thumbnail: "/thumbnails/4 - Surf Nias_.jpg"
   },
@@ -67,7 +67,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Jamburae Owner Interview - Part 1",
     subtitle: "Behind the scenes with the founder",
     client: "Jamburae",
-    src: "/api/videos/file/5 - Jamburae - Owner part 1_github_ready.mp4",
+    src: "/videos/5 - Jamburae - Owner part 1_github_ready.mp4",
     filename: "5 - Jamburae - Owner part 1_github_ready.mp4",
     thumbnail: "/thumbnails/5 - Sit part 1.jpg"
   },
@@ -75,7 +75,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Jamburae Owner Interview - Part 2",
     subtitle: "Continuing the conversation about surf culture",
     client: "Jamburae",
-    src: "/api/videos/file/6 - Jamburae - Onwer part 2_github_ready.mp4",
+    src: "/videos/6 - Jamburae - Onwer part 2_github_ready.mp4",
     filename: "6 - Jamburae - Onwer part 2_github_ready.mp4",
     thumbnail: "/thumbnails/6 - Sit part 2_.jpg"
   },
@@ -83,7 +83,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Guest Experience Review",
     subtitle: "Real stories from our surf school guests",
     client: "Jamburae",
-    src: "/api/videos/file/7 - Guest Review.mp4",
+    src: "/videos/7 - Guest Review.mp4",
     filename: "7 - Guest Review.mp4",
     thumbnail: "/thumbnails/7 - Guest Review.jpg"
   },
@@ -91,7 +91,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Rarity Agency Showcase",
     subtitle: "Innovative marketing solutions for luxury brands",
     client: "Rarity",
-    src: "/api/videos/file/8- Rarity Agency_github_ready.mp4",
+    src: "/videos/8- Rarity Agency_github_ready.mp4",
     filename: "8- Rarity Agency_github_ready.mp4",
     thumbnail: "/thumbnails/8 - Rarity Agency.jpg"
   },
@@ -99,7 +99,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Jamburae Boat Experience",
     subtitle: "Ocean adventures and marine exploration",
     client: "Jamburae",
-    src: "/api/videos/file/9 - Jamburae  BOAT_github_ready.mp4",
+    src: "/videos/9 - Jamburae  BOAT_github_ready.mp4",
     filename: "9 - Jamburae  BOAT_github_ready.mp4",
     thumbnail: "/thumbnails/9 - Jamburae Boat.jpeg"
   },
@@ -107,7 +107,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Real Estate Florianópolis",
     subtitle: "Exclusive properties in Brazil's surf capital",
     client: "Smart Imob",
-    src: "/api/videos/file/10 - Smart Imob.mp4",
+    src: "/videos/10 - Smart Imob.mp4",
     filename: "10 - Smart Imob.mp4",
     thumbnail: "/thumbnails/10 - Smart Imob Centro Floripa.jpg"
   },
@@ -115,7 +115,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Surf Island Experience",
     subtitle: "Complete surf immersion on Nias Island",
     client: "Jamburae",
-    src: "/api/videos/file/11 - Surf Nias.mp4",
+    src: "/videos/11 - Surf Nias.mp4",
     filename: "11 - Surf Nias.mp4",
     thumbnail: "/thumbnails/11 - Surf Nias.jpg"
   },
@@ -123,7 +123,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Rarity Owner Interview",
     subtitle: "Insights into modern marketing strategies",
     client: "Rarity",
-    src: "/api/videos/file/12 - Rarity Owner.mp4",
+    src: "/videos/12 - Rarity Owner.mp4",
     filename: "12 - Rarity Owner.mp4",
     thumbnail: "/thumbnails/12 - Rarity Owner.jpg"
   },
@@ -131,7 +131,7 @@ const portfolioVideos: VideoItem[] = [
     title: "Real Estate Florianópolis",
     subtitle: "Premium investment opportunities in Brazil",
     client: "Smart Imob",
-    src: "/api/videos/file/13 - Smart Imob.mp4",
+    src: "/videos/13 - Smart Imob.mp4",
     filename: "13 - Smart Imob.mp4",
     thumbnail: "/thumbnails/13- Smart Imob.jpg"
   }
