@@ -67,24 +67,32 @@ const getVideoClient = (title: string): string => {
 };
 
 const getVideoThumbnail = (filename: string): string => {
-  // Map filenames to existing thumbnails
+  // Extract the video number from the filename (e.g., "1", "2", "3", etc.)
+  const videoNumberMatch = filename.match(/^(\d+)/);
+  if (!videoNumberMatch) {
+    return '/thumbnails/1 - Surf Nias.jpg'; // Default thumbnail
+  }
+  
+  const videoNumber = videoNumberMatch[1];
+  
+  // Map video numbers to their corresponding thumbnails
   const thumbnailMap: Record<string, string> = {
-    '1 - Jamburae Surf _compressed.mp4': '/thumbnails/1 - Surf Nias.jpg',
-    '2 - Fun In Nias.mp4': '/thumbnails/2 - Fun in Indonesia.jpg',
-    '3 - Real Estate_.mp4': '/thumbnails/3 - Smart Imob Florianopolis.jpg',
-    '4 - Jamburae Surf.mp4': '/thumbnails/4 - Surf Nias_.jpg',
-    '5 - Jamburae - Owner part 1_github_ready.mp4': '/thumbnails/5 - Sit part 1.jpg',
-    '6 - Jamburae - Onwer part 2_github_ready.mp4': '/thumbnails/6 - Sit part 2_.jpg',
-    '7 - Guest Review_compressed.mp4': '/thumbnails/7 - Guest Review.jpg',
-    '8- Rarity Agency_compressed.mp4': '/thumbnails/8 - Rarity Agency.jpg',
-    '9 - Jamburae  BOAT_compressed.mp4': '/thumbnails/9 - Jamburae Boat.jpeg',
-    '10 - Smart Imob.mp4': '/thumbnails/10 - Smart Imob Centro Floripa.jpg',
-    '11 - Surf Nias.mp4': '/thumbnails/11 - Surf Nias.jpg',
-    '12 - Rarity Owner.mp4': '/thumbnails/12 - Rarity Owner.jpg',
-    '13- Smart Imob.mp4': '/thumbnails/13- Smart Imob.jpg'
+    '1': '/thumbnails/1 - Surf Nias.jpg',
+    '2': '/thumbnails/2 - Fun in Indonesia.jpg',
+    '3': '/thumbnails/3 - Smart Imob Florianopolis.jpg',
+    '4': '/thumbnails/4 - Surf Nias_.jpg',
+    '5': '/thumbnails/5 - Sit part 1.jpg',
+    '6': '/thumbnails/6 - Sit part 2_.jpg',
+    '7': '/thumbnails/7 - Guest Review.jpg',
+    '8': '/thumbnails/8 - Rarity Agency.jpg',
+    '9': '/thumbnails/9 - Jamburae Boat.jpeg',
+    '10': '/thumbnails/10 - Smart Imob Centro Floripa.jpg',
+    '11': '/thumbnails/11 - Surf Nias.jpg',
+    '12': '/thumbnails/12 - Rarity Owner.jpg',
+    '13': '/thumbnails/13- Smart Imob.jpg'
   };
   
-  return thumbnailMap[filename] || '/thumbnails/1 - Surf Nias.jpg'; // Default thumbnail
+  return thumbnailMap[videoNumber] || '/thumbnails/1 - Surf Nias.jpg'; // Default thumbnail
 };
 
 // Bad words filter for comment moderation
