@@ -2,11 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { R2Service } from "@/lib/r2-service";
 
 export async function GET(
-  request: NextRequest,
-  { params }: { params: { filename: string } }
+  _request: NextRequest,
+  { params }: { params: Promise<{ filename: string }> }
 ) {
   try {
-    const { filename } = params;
+    const { filename } = await params;
     
     if (!filename) {
       return NextResponse.json({ error: "Filename is required" }, { status: 400 });

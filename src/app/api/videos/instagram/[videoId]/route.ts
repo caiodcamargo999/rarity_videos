@@ -2,11 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { R2Service } from "@/lib/r2-service";
 
 export async function GET(
-  request: NextRequest,
-  { params }: { params: { videoId: string } }
+  _request: NextRequest,
+  { params }: { params: Promise<{ videoId: string }> }
 ) {
   try {
-    const { videoId } = params;
+    const { videoId } = await params;
     
     if (!videoId) {
       return NextResponse.json({ error: "Video ID is required" }, { status: 400 });
@@ -19,20 +19,20 @@ export async function GET(
       return NextResponse.json({ error: "Video not found" }, { status: 404 });
     }
 
-    // Return video information for Instagram-style display
+    // Return video information for Instagram integration
     return NextResponse.json({
       success: true,
       video: {
         id: videoInfo.filename,
-        url: videoInfo.url,
         title: videoInfo.title,
+        url: videoInfo.url,
         size: videoInfo.size,
         uploadedAt: videoInfo.uploadedAt
       }
     });
     
   } catch (error) {
-    console.error("Error fetching Instagram video:", error);
+    console.error("Error getting video info:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
