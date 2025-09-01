@@ -1,45 +1,39 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
+import { R2Service } from "@/lib/r2-service";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ videoId: string }> }
+  { params }: { params: { videoId: string } }
 ) {
   try {
-    const { videoId } = await params;
+    const { videoId } = params;
     
     if (!videoId) {
-      return NextResponse.json(
-        { error: 'Video ID is required' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Video ID is required" }, { status: 400 });
     }
 
-    // Instagram video URL construction
-    const instagramUrl = `https://www.instagram.com/reel/${videoId}/`;
+    const r2Service = R2Service.getInstance();
+    const videoInfo = await r2Service.getVideoInfo(videoId);
     
-    // For now, we'll return a response that indicates the video should play on site
-    // In a production environment, you would:
-    // 1. Fetch the actual video content from Instagram
-    // 2. Process and optimize the video
-    // 3. Serve it from your CDN or storage
-    // 4. Handle authentication and rate limiting
-    
-    // This is a placeholder response - in reality, you'd stream the actual video
+    if (!videoInfo) {
+      return NextResponse.json({ error: "Video not found" }, { status: 404 });
+    }
+
+    // Return video information for Instagram-style display
     return NextResponse.json({
       success: true,
-      videoId,
-      message: 'Video content would be served here',
-      instagramUrl,
-      // In production, you'd return the actual video stream
-      // or redirect to your video storage/CDN
+      video: {
+        id: videoInfo.filename,
+        url: videoInfo.url,
+        title: videoInfo.title,
+        size: videoInfo.size,
+        uploadedAt: videoInfo.uploadedAt
+      }
     });
-
+    
   } catch (error) {
-    console.error('Error fetching Instagram video:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch video content' },
-      { status: 500 }
-    );
+    console.error("Error fetching Instagram video:", error);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 

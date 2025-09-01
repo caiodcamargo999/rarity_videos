@@ -1,0 +1,17 @@
+# Cloudflare R2 Configuration
+# Note: Videos are now served directly from Cloudflare R2 public development URLs
+# No environment variables are needed for video serving
+
+# The following URLs are hardcoded in the R2 service:
+# https://pub-e576ba791df5410fa6889b10bedf4821.r2.dev/
+
+# Video files available:
+# 1 - Jamburae Surf.mp4
+# 2 - Jamburae Surf.mp4  
+# 3 - Jamburae - Owner part 1.mp4
+# 4 - Jamburae - Onwer part 2.mp4
+# 5 - Guest Review.mp4
+# 6- Rarity Agency.mp4
+# 7 - Jamburae BOAT.mp4
+# 8 - Surf Nias.mp4
+# 9 - Rarity Owner.mp4

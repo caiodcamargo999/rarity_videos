@@ -30,7 +30,7 @@ type VideoStats = {
 };
 
 // Video data with subtitles - ordered by filename numbers
-// This will be replaced by dynamic data from blob storage
+// This will be replaced by dynamic data from R2 storage
 // const portfolioVideos: VideoItem[] = []; // Removed unused variable
 
 // Helper functions for video metadata
@@ -67,32 +67,21 @@ const getVideoClient = (title: string): string => {
 };
 
 const getVideoThumbnail = (filename: string): string => {
-  // Extract the video number from the filename (e.g., "1", "2", "3", etc.)
-  const videoNumberMatch = filename.match(/^(\d+)/);
-  if (!videoNumberMatch) {
-    return '/thumbnails/1 - Surf Nias.jpg'; // Default thumbnail
-  }
-  
-  const videoNumber = videoNumberMatch[1];
-  
-  // Map video numbers to their corresponding thumbnails
+  // Map actual video filenames to their corresponding thumbnails
+  // Updated to match the video content with appropriate thumbnails
   const thumbnailMap: Record<string, string> = {
-    '1': '/thumbnails/1 - Surf Nias.jpg',
-    '2': '/thumbnails/2 - Fun in Indonesia.jpg',
-    '3': '/thumbnails/3 - Smart Imob Florianopolis.jpg',
-    '4': '/thumbnails/4 - Surf Nias_.jpg',
-    '5': '/thumbnails/5 - Sit part 1.jpg',
-    '6': '/thumbnails/6 - Sit part 2_.jpg',
-    '7': '/thumbnails/7 - Guest Review.jpg',
-    '8': '/thumbnails/8 - Rarity Agency.jpg',
-    '9': '/thumbnails/9 - Jamburae Boat.jpeg',
-    '10': '/thumbnails/10 - Smart Imob Centro Floripa.jpg',
-    '11': '/thumbnails/11 - Surf Nias.jpg',
-    '12': '/thumbnails/12 - Rarity Owner.jpg',
-    '13': '/thumbnails/13- Smart Imob.jpg'
+    '1 - Jamburae Surf.mp4': '/thumbnails/1 - Surf Nias.jpg',           // Surf Nias thumbnail for Jamburae Surf
+    '2 - Jamburae Surf.mp4': '/thumbnails/2 - Fun in Indonesia.jpg',    // Fun in Indonesia thumbnail for Jamburae Surf
+    '3 - Jamburae - Owner part 1.mp4': '/thumbnails/5 - Sit part 1.jpg', // Sit part 1 for Owner interview
+    '4 - Jamburae - Onwer part 2.mp4': '/thumbnails/6 - Sit part 2_.jpg', // Sit part 2 for Owner interview part 2
+    '5 - Guest Review.mp4': '/thumbnails/7 - Guest Review.jpg',          // Guest Review thumbnail for Guest Review
+    '6- Rarity Agency.mp4': '/thumbnails/8 - Rarity Agency.jpg',         // Rarity Agency thumbnail for Rarity Agency
+    '7 - Jamburae BOAT.mp4': '/thumbnails/9 - Jamburae Boat.jpeg',      // Jamburae Boat thumbnail for Jamburae BOAT
+    '8 - Surf Nias.mp4': '/thumbnails/4 - Surf Nias_.jpg',              // Surf Nias thumbnail for Surf Nias
+    '9 - Rarity Owner.mp4': '/thumbnails/8 - Rarity Agency.jpg'          // Rarity Agency thumbnail for Rarity Owner
   };
   
-  return thumbnailMap[videoNumber] || '/thumbnails/1 - Surf Nias.jpg'; // Default thumbnail
+  return thumbnailMap[filename] || '/thumbnails/1 - Surf Nias.jpg'; // Default thumbnail
 };
 
 // Bad words filter for comment moderation
@@ -122,7 +111,7 @@ export function VideoGallery() {
 
 
 
-  // Fetch videos from blob storage API
+  // Fetch videos from R2 storage API
   useEffect(() => {
     const fetchVideos = async () => {
       try {
@@ -133,7 +122,7 @@ export function VideoGallery() {
         }
         const data = await response.json();
         
-        // Transform blob data to match our VideoItem interface
+        // Transform R2 data to match our VideoItem interface
         const transformedVideos = data.map((video: { src: string; title: string; filename: string; size: number; uploadedAt: string }) => ({
           src: video.src,
           title: video.title,
@@ -667,6 +656,8 @@ export function VideoGallery() {
                     }}
                     onError={(e) => {
                       console.error("Video loading error:", e);
+                      console.error("Video URL that failed:", selectedVideo.src);
+                      console.error("Video filename:", selectedVideo.filename);
                       setIsVideoLoading(false);
                     }}
                     onLoadStart={() => {
