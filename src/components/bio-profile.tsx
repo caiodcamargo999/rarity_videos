@@ -37,7 +37,7 @@ export function BioProfile() {
     >
       <MotionAvatar
         name="Carolina Abreu"
-        src="/profile_picture_carolina.png"
+        src="/profile_new.png"
         size="xl"
         borderWidth="2px"
         borderColor="rgba(215, 197, 182, 0.2)"

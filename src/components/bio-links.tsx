@@ -61,14 +61,6 @@ export function BioLinks() {
       cta: t("bioLearnMore"),
       type: "modal",
       modalType: "travel"
-    },
-    {
-      id: "socialMedia",
-      title: t("bioSocialMediaPortfolio"),
-      description: t("bioSocialMediaPortfolioDesc"),
-      cta: t("bioViewPortfolio"),
-      type: "link",
-      href: "/socialmedia"
     }
   ];
 
