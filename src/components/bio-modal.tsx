@@ -45,7 +45,7 @@ export function BioModal({ type, isOpen, onClose }: BioModalProps) {
         message = t("whatsappBaliMessage"); // Fallback to Bali message
     }
     
-    const whatsappUrl = `https://wa.me/212777521023?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/5548991660364?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     onClose();
   };

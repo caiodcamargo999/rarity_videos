@@ -93,12 +93,12 @@ export function TravelWellnessModal({ isOpen, onClose }: { isOpen: boolean; onCl
       // Send WhatsApp message
       const whatsappMessage = encodeURIComponent(
         locale === 'pt' ? 'Oi Carol, acabei de preencher o formulário sobre viagens e bem estar' :
-        locale === 'es' ? 'Hola Carol, acabo de llenar el formulario sobre viajes y bienestar' :
-        locale === 'ar' ? 'مرحباً كارول، لقد ملأت للتو النموذج حول السفر والعافية' :
-        'Hey Carol, I just filled the form about travel and wellness'
+          locale === 'es' ? 'Hola Carol, acabo de llenar el formulario sobre viajes y bienestar' :
+            locale === 'ar' ? 'مرحباً كارول، لقد ملأت للتو النموذج حول السفر والعافية' :
+              'Hey Carol, I just filled the form about travel and wellness'
       );
-      
-      const whatsappUrl = `https://wa.me/212777521023?text=${whatsappMessage}`;
+
+      const whatsappUrl = `https://wa.me/5548991660364?text=${whatsappMessage}`;
       window.open(whatsappUrl, '_blank');
 
       setIsSubmitted(true);
@@ -142,9 +142,9 @@ export function TravelWellnessModal({ isOpen, onClose }: { isOpen: boolean; onCl
     return (
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(10px)" />
-        <ModalContent 
-          bg="brand.accent" 
-          border="1px solid" 
+        <ModalContent
+          bg="brand.accent"
+          border="1px solid"
           borderColor="whiteAlpha.200"
           maxW="500px"
         >
@@ -177,30 +177,30 @@ export function TravelWellnessModal({ isOpen, onClose }: { isOpen: boolean; onCl
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="2xl" isCentered>
       <ModalOverlay bg="blackAlpha.800" backdropFilter="blur(10px)" />
-      <ModalContent 
-        bg="brand.accent" 
-        border="1px solid" 
+      <ModalContent
+        bg="brand.accent"
+        border="1px solid"
         borderColor="whiteAlpha.200"
         maxW="600px"
       >
-        <ModalHeader 
-          borderBottom="1px solid" 
+        <ModalHeader
+          borderBottom="1px solid"
           borderColor="whiteAlpha.200"
           pb="4"
         >
-                     <VStack spacing="3" align="start">
-             <Text fontSize="2xl" fontWeight="600" color="brand.lightBrown">
-               {t("travelWellnessTitle")}
-             </Text>
-             <Text fontSize="md" color="brand.lightBrown" opacity="0.8">
-               {t("travelWellnessSubtitle")}
-             </Text>
-           </VStack>
+          <VStack spacing="3" align="start">
+            <Text fontSize="2xl" fontWeight="600" color="brand.lightBrown">
+              {t("travelWellnessTitle")}
+            </Text>
+            <Text fontSize="md" color="brand.lightBrown" opacity="0.8">
+              {t("travelWellnessSubtitle")}
+            </Text>
+          </VStack>
         </ModalHeader>
 
-        <ModalCloseButton 
-          color="brand.lightBrown" 
-          bg="blackAlpha.600" 
+        <ModalCloseButton
+          color="brand.lightBrown"
+          bg="blackAlpha.600"
           _hover={{ bg: "blackAlpha.800" }}
         />
 
@@ -287,59 +287,59 @@ export function TravelWellnessModal({ isOpen, onClose }: { isOpen: boolean; onCl
               </Text>
             </FormControl>
 
-                        {/* Submit Button - Always visible but with different states */}
+            {/* Submit Button - Always visible but with different states */}
             <Button
-              onClick={formData.aspirations.trim() && 
-                       formData.name.trim() && 
-                       formData.email.trim() && 
-                       formData.whatsapp.trim() ? handleSubmit : undefined}
+              onClick={formData.aspirations.trim() &&
+                formData.name.trim() &&
+                formData.email.trim() &&
+                formData.whatsapp.trim() ? handleSubmit : undefined}
               isLoading={isSubmitting}
               loadingText="Submitting..."
               leftIcon={<Icon as={Send} />}
-              bg={formData.aspirations.trim() && 
-                  formData.name.trim() && 
-                  formData.email.trim() && 
-                  formData.whatsapp.trim() 
-                    ? "brand.lightBrown" 
-                    : "whiteAlpha.100"}
-              color={formData.aspirations.trim() && 
-                     formData.name.trim() && 
-                     formData.email.trim() && 
-                     formData.whatsapp.trim() 
-                       ? "brand.darkBrown" 
-                       : "whiteAlpha.400"}
+              bg={formData.aspirations.trim() &&
+                formData.name.trim() &&
+                formData.email.trim() &&
+                formData.whatsapp.trim()
+                ? "brand.lightBrown"
+                : "whiteAlpha.100"}
+              color={formData.aspirations.trim() &&
+                formData.name.trim() &&
+                formData.email.trim() &&
+                formData.whatsapp.trim()
+                ? "brand.darkBrown"
+                : "whiteAlpha.400"}
               size="lg"
               py="6"
               fontSize="lg"
               fontWeight="600"
-              cursor={formData.aspirations.trim() && 
-                      formData.name.trim() && 
-                      formData.email.trim() && 
-                      formData.whatsapp.trim() 
-                        ? "pointer" 
-                        : "not-allowed"}
-              opacity={formData.aspirations.trim() && 
-                      formData.name.trim() && 
-                      formData.email.trim() && 
-                      formData.whatsapp.trim() 
-                        ? 1 
-                        : 0.6}
-              _hover={formData.aspirations.trim() && 
-                      formData.name.trim() && 
-                      formData.email.trim() && 
-                      formData.whatsapp.trim() 
-                        ? { 
-                            bg: "whiteAlpha.900",
-                            transform: "translateY(-2px)",
-                            boxShadow: "0 10px 25px rgba(215, 197, 182, 0.3)"
-                          }
-                        : {}}
-              _active={formData.aspirations.trim() && 
-                       formData.name.trim() && 
-                       formData.email.trim() && 
-                       formData.whatsapp.trim() 
-                         ? { transform: "scale(0.98)" }
-                         : {}}
+              cursor={formData.aspirations.trim() &&
+                formData.name.trim() &&
+                formData.email.trim() &&
+                formData.whatsapp.trim()
+                ? "pointer"
+                : "not-allowed"}
+              opacity={formData.aspirations.trim() &&
+                formData.name.trim() &&
+                formData.email.trim() &&
+                formData.whatsapp.trim()
+                ? 1
+                : 0.6}
+              _hover={formData.aspirations.trim() &&
+                formData.name.trim() &&
+                formData.email.trim() &&
+                formData.whatsapp.trim()
+                ? {
+                  bg: "whiteAlpha.900",
+                  transform: "translateY(-2px)",
+                  boxShadow: "0 10px 25px rgba(215, 197, 182, 0.3)"
+                }
+                : {}}
+              _active={formData.aspirations.trim() &&
+                formData.name.trim() &&
+                formData.email.trim() &&
+                formData.whatsapp.trim()
+                ? { transform: "scale(0.98)" }
+                : {}}
               transition="all 0.3s ease"
             >
               {t("submitForm")}

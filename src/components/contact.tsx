@@ -104,7 +104,7 @@ export function Contact() {
           >
             <Box
               as="a"
-              href="https://wa.me/212777521023?text=Hey%20Carolina%2C%20I%20want%20to%20know%20more%20about%20your%20social%20media%20content%20planner%20service!"
+              href="https://wa.me/5548991660364?text=Hey%20Carolina%2C%20I%20want%20to%20know%20more%20about%20your%20social%20media%20content%20planner%20service!"
               target="_blank"
               rel="noreferrer"
               _hover={{
