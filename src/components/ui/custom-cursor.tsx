@@ -68,8 +68,8 @@ export function CustomCursor() {
             style={{
                 x: cursorX,
                 y: cursorY,
-                backgroundColor: isHovering ? "rgba(176, 68, 255, 0.6)" : "rgba(124, 58, 237, 0.5)",
-                filter: isHovering ? "blur(8px)" : "blur(12px)",
+                backgroundColor: isHovering ? "rgba(176, 68, 255, 0.9)" : "rgba(124, 58, 237, 0.8)",
+                filter: isHovering ? "blur(4px)" : "blur(6px)",
                 scale: isHovering ? 1.5 : 1,
                 mixBlendMode: "plus-lighter"
             }}

@@ -1,293 +1,54 @@
-# 🚀 RARITY AGENCY - GUIA DE CONFIGURAÇÃO CLOUDFLARE R2
+# Guia de Configuração: Cloudflare R2 para Hospedagem de Vídeos
 
-## 📋 O Que Foi Criado
+Este guia passo a passo ajudará você a configurar o Cloudflare R2 para hospedar seus vídeos de portfólio de forma rápida, barata e sem taxas de transferência (egress fees).
 
-### ✅ Estrutura Completa
-- **Types:** `src/types/rarity.ts`
-- **Theme:** `src/lib/rarity/theme.ts`
-- **Constants:** `src/lib/rarity/constants.ts` (16 vídeos configurados)
-- **Components:**
-  - `src/components/rarity/ui/video-card.tsx`
-  - `src/components/rarity/ui/video-modal.tsx`
-  - `src/components/rarity/sections/hero-section.tsx`
-  - `src/components/rarity/sections/video-showcase.tsx`
-- **Page:** `src/app/rarity/page.tsx`
-- **Layout:** `src/app/rarity/layout.tsx`
+## Passo 1: Criar Conta e Bucket no Cloudflare
 
----
+1.  **Acesse o Cloudflare:** Vá para [dash.cloudflare.com](https://dash.cloudflare.com/) e faça login (ou crie uma conta gratuita).
+2.  **Navegue até R2:** No menu lateral esquerdo, clique em **R2**.
+    *   *Nota: O R2 pode pedir um cartão de crédito para ativar, mas você tem 10GB de graça por mês.*
+3.  **Criar Bucket:**
+    *   Clique em **"Create Bucket"**.
+    *   Dê um nome único, por exemplo: `rarity-portfolio`.
+    *   Clique em **"Create Bucket"**.
 
-## 🎬 VÍDEOS CONFIGURADOS
+## Passo 2: Configurar Acesso Público
 
-### Edição Premium (10 vídeos)
-1. **edit-01** - Campanha Digital Premium (TechBrand)
-2. **edit-02** - Lançamento de Produto (StartupX)
-3. **edit-03** - Reels Virais (InfluencerY)
-4. **edit-04** - Vídeo Corporativo (CorpZ)
-5. **edit-05** - Anúncio Publicitário (BrandA)
-6. **edit-06** - Tutorial Animado (EduTech)
-7. **edit-07** - Teaser de Evento (EventCo)
-8. **edit-08** - Depoimento Cliente (ServiceB)
-9. **edit-09** - Vídeo Explicativo (SaaSC)
-10. **edit-10** - Highlight Reel (AgencyD)
+Para que seus vídeos apareçam no site, o bucket precisa ser acessível publicamente via URL.
 
-### Storymaker (6 vídeos)
-1. **story-01** - História de Marca (Jamburae)
-2. **story-02** - Documentário Curto (EcoLife)
-3. **story-03** - Behind the Scenes (FashionE)
-4. **story-04** - Vídeo Institucional (TechF)
-5. **story-05** - Campanha Social (ONGG)
-6. **story-06** - Vídeo Promocional (StartupH)
+1.  Dentro do seu bucket recém-criado, vá para a aba **Settings** (Configurações).
+2.  Role até encontrar a seção **Public Access**.
+3.  **Opção A (Mais Fácil - Domínio R2.dev):**
+    *   Clique em **"Allow Access"** em "R2.dev subdomain".
+    *   Copie o domínio que aparecerá (algo como `https://pub-xxxxxxxx.r2.dev`).
+4.  **Opção B (Profissional - Seu Domínio):**
+    *   Se você já usa o Cloudflare para gerenciar seu domínio (DNS), clique em **"Connect Domain"**.
+    *   Escolha um subdomínio, ex: `cdn.rarity.com`.
 
----
+## Passo 3: Fazer Upload dos Vídeos
 
-## ☁️ CONFIGURAÇÃO CLOUDFLARE R2
+1.  Vá para a aba **Objects** (Objetos) no seu bucket.
+2.  Arraste e solte seus arquivos de vídeo aqui.
+    *   **Recomendação de Formato:** Use `.mp4` com codec H.264 para máxima compatibilidade.
+    *   **Tamanho:** Tente manter os vídeos otimizados (abaixo de 20-30MB se possível para carregar rápido).
 
-### Passo 1: Criar Bucket no Cloudflare R2
+## Passo 4: Obter os Links
 
-1. Acesse o [Cloudflare Dashboard](https://dash.cloudflare.com/)
-2. Vá em **R2** no menu lateral
-3. Clique em **Create Bucket**
-4. Nome sugerido: `rarity-videos`
-5. Escolha a região mais próxima
+Depois de enviar, o link do seu vídeo será a junção do seu domínio público + o nome do arquivo.
 
-### Passo 2: Configurar Acesso Público
-
-1. No bucket criado, vá em **Settings**
-2. Em **Public Access**, clique em **Allow Access**
-3. Copie a **Public Bucket URL** (exemplo: `https://pub-xxxxx.r2.dev`)
-
-### Passo 3: Estrutura de Pastas no R2
-
-Crie a seguinte estrutura no seu bucket:
-
-```
-rarity-videos/
-├── videos/
-│   ├── edit-01.mp4
-│   ├── edit-02.mp4
-│   ├── edit-03.mp4
-│   ├── edit-04.mp4
-│   ├── edit-05.mp4
-│   ├── edit-06.mp4
-│   ├── edit-07.mp4
-│   ├── edit-08.mp4
-│   ├── edit-09.mp4
-│   ├── edit-10.mp4
-│   ├── story-01.mp4
-│   ├── story-02.mp4
-│   ├── story-03.mp4
-│   ├── story-04.mp4
-│   ├── story-05.mp4
-│   └── story-06.mp4
-└── thumbnails/
-    ├── edit-01.jpg
-    ├── edit-02.jpg
-    ├── edit-03.jpg
-    ├── edit-04.jpg
-    ├── edit-05.jpg
-    ├── edit-06.jpg
-    ├── edit-07.jpg
-    ├── edit-08.jpg
-    ├── edit-09.jpg
-    ├── edit-10.jpg
-    ├── story-01.jpg
-    ├── story-02.jpg
-    ├── story-03.jpg
-    ├── story-04.jpg
-    ├── story-05.jpg
-    └── story-06.jpg
-```
-
-### Passo 4: Upload dos Arquivos
-
-**Opção 1: Via Dashboard (Simples)**
-1. Acesse seu bucket
-2. Clique em **Upload**
-3. Arraste os arquivos para as pastas corretas
-
-**Opção 2: Via Wrangler CLI (Avançado)**
-```bash
-# Instalar Wrangler
-npm install -g wrangler
-
-# Login
-wrangler login
-
-# Upload de vídeos
-wrangler r2 object put rarity-videos/videos/edit-01.mp4 --file ./edit-01.mp4
-
-# Upload de thumbnails
-wrangler r2 object put rarity-videos/thumbnails/edit-01.jpg --file ./edit-01.jpg
-```
+**Exemplo:**
+*   Domínio Público: `https://pub-123456.r2.dev`
+*   Nome do Arquivo: `video-story-01.mp4`
+*   **Link Final:** `https://pub-123456.r2.dev/video-story-01.mp4`
 
 ---
 
-## 🔧 CONFIGURAÇÃO DO PROJETO
+## Estrutura dos Vídeos para o Site
 
-### Passo 1: Adicionar Variável de Ambiente
+Você solicitou:
+*   6 Vídeos de **Storymaker**
+*   10 Vídeos de **Edição de Vídeo**
 
-Crie o arquivo `.env.local` na raiz do projeto:
+Eu criei um arquivo de configuração no projeto onde você só precisará colar esses links finais.
 
-```env
-# Cloudflare R2 Public URL
-NEXT_PUBLIC_R2_PUBLIC_URL=https://pub-xxxxx.r2.dev
-```
-
-**Substitua `https://pub-xxxxx.r2.dev` pela URL pública do seu bucket!**
-
-### Passo 2: Atualizar Constants (Opcional)
-
-Se você quiser usar nomes diferentes de arquivos, edite:
-`src/lib/rarity/constants.ts`
-
-```typescript
-// Exemplo: mudar nome do vídeo
-{
-  id: "edit-01",
-  videoUrl: getR2Url("/videos/meu-video-customizado.mp4"),
-  thumbnailUrl: getR2Url("/thumbnails/minha-thumb.jpg"),
-}
-```
-
----
-
-## 🎨 CRIANDO THUMBNAILS
-
-### Recomendações:
-- **Formato:** JPG ou WebP
-- **Resolução:** 1080x1920 (9:16 - vertical)
-- **Tamanho:** < 500KB (otimizado)
-- **Qualidade:** 80-85%
-
-### Ferramentas Sugeridas:
-- **Canva:** Templates prontos para thumbnails
-- **Figma:** Design customizado
-- **Photoshop:** Edição profissional
-- **FFmpeg:** Extrair frame do vídeo
-
-### Extrair Thumbnail com FFmpeg:
-```bash
-# Extrair frame em 00:00:02
-ffmpeg -i video.mp4 -ss 00:00:02 -vframes 1 -q:v 2 thumbnail.jpg
-```
-
----
-
-## 🚀 TESTAR LOCALMENTE
-
-### Passo 1: Instalar Dependências
-```bash
-npm install
-```
-
-### Passo 2: Rodar Servidor de Desenvolvimento
-```bash
-npm run dev
-```
-
-### Passo 3: Acessar a Landing Page
-```
-http://localhost:3000/rarity
-```
-
----
-
-## ✅ CHECKLIST DE CONFIGURAÇÃO
-
-### Cloudflare R2
-- [ ] Bucket criado
-- [ ] Acesso público habilitado
-- [ ] URL pública copiada
-- [ ] Pastas `/videos` e `/thumbnails` criadas
-- [ ] 16 vídeos (.mp4) enviados
-- [ ] 16 thumbnails (.jpg) enviados
-
-### Projeto Next.js
-- [ ] `.env.local` criado
-- [ ] `NEXT_PUBLIC_R2_PUBLIC_URL` configurada
-- [ ] `npm install` executado
-- [ ] `npm run dev` funcionando
-- [ ] Página `/rarity` acessível
-
-### Testes
-- [ ] Hero section carregando
-- [ ] Filtros de categoria funcionando
-- [ ] Thumbnails carregando
-- [ ] Modal de vídeo abrindo
-- [ ] Vídeos reproduzindo
-- [ ] Navegação entre vídeos (prev/next)
-- [ ] Responsividade (mobile, tablet, desktop)
-
----
-
-## 🎯 PRÓXIMOS PASSOS
-
-### Customização
-1. **Substituir vídeos placeholder** pelos vídeos reais
-2. **Criar thumbnails profissionais** para cada vídeo
-3. **Ajustar títulos e descrições** em `constants.ts`
-4. **Adicionar clientes reais** nos badges
-
-### Otimização
-1. **Comprimir vídeos** para web (H.264, 1080p, 30fps)
-2. **Otimizar thumbnails** (WebP, < 500KB)
-3. **Configurar CDN** (Cloudflare já faz isso automaticamente)
-4. **Adicionar analytics** (Google Analytics, Vercel Analytics)
-
-### Expansão
-1. **Adicionar mais seções** (Depoimentos, FAQ, CTA Final)
-2. **Integrar formulário** de contato
-3. **Adicionar animações** Framer Motion
-4. **Implementar SEO** completo
-
----
-
-## 📞 SUPORTE
-
-### Dúvidas sobre Cloudflare R2?
-- [Documentação Oficial](https://developers.cloudflare.com/r2/)
-- [Pricing](https://www.cloudflare.com/pt-br/developer-platform/r2/)
-
-### Dúvidas sobre o Projeto?
-- Consulte `RARITY_VISUAL_IDENTITY.md` para identidade visual
-- Consulte `RARITY_ARCHITECTURE.md` para arquitetura
-- Consulte `RARITY_IMPLEMENTATION_PLAN.md` para próximos passos
-
----
-
-## 🎨 FEATURES IMPLEMENTADAS
-
-### UI/UX Premium ✅
-- ✅ Design moderno com gradientes da Rarity
-- ✅ Animações suaves (fade-in, slide-in, hover effects)
-- ✅ Grid responsivo (2-5 colunas)
-- ✅ Lazy loading de imagens
-- ✅ Loading states elegantes
-
-### Video Player ✅
-- ✅ Modal estilo Instagram Reels
-- ✅ Player vertical (9:16)
-- ✅ Controles de play/pause
-- ✅ Navegação prev/next
-- ✅ Navegação por teclado (←, →, Esc, Space)
-- ✅ Botões sociais (like, comment, share)
-- ✅ Auto-play ao abrir
-
-### Filtros e Categorias ✅
-- ✅ Filtro "Todos" (16 vídeos)
-- ✅ Filtro "Edição Premium" (10 vídeos)
-- ✅ Filtro "Storymaker" (6 vídeos)
-- ✅ Contadores dinâmicos
-- ✅ Transições suaves
-
-### Performance ✅
-- ✅ Lazy loading de vídeos
-- ✅ Otimização de imagens
-- ✅ Code splitting automático
-- ✅ Cloudflare R2 CDN
-
----
-
-**🎉 Tudo pronto para você adicionar seus vídeos e lançar!**
-
-**Status:** ✅ Estrutura completa | ⏳ Aguardando upload de vídeos no R2
+**Local do Arquivo:** `src/data/portfolio.ts`
