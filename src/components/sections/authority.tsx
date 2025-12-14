@@ -8,6 +8,7 @@ import { TechArrow } from "@/components/ui/tech-arrow";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { useBooking } from "@/context/booking-context";
 
 interface FounderProps {
   name: string;
@@ -20,6 +21,7 @@ interface FounderProps {
 }
 
 const FounderSection = ({ name, role, imageSrc, bio, highlights, align = "left", badge }: FounderProps) => {
+  const { openBooking } = useBooking();
   return (
     <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 py-10 ${align === "right" ? "lg:flex-row-reverse" : ""} `}>
       {/* Text Content */}
@@ -61,7 +63,7 @@ const FounderSection = ({ name, role, imageSrc, bio, highlights, align = "left",
         </div>
 
         <div className="pt-4">
-          <Button className="group bg-gradient-cta text-white rounded-full px-8 py-6 text-lg hover:shadow-[0_0_30px_rgba(155,0,200,0.4)] transition-all">
+          <Button onClick={openBooking} className="group bg-gradient-cta text-white rounded-full px-8 py-6 text-lg hover:shadow-[0_0_30px_rgba(155,0,200,0.4)] transition-all">
             Solicitar Diagnóstico <TechArrow />
           </Button>
         </div>

@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/hero";
 import { Authority } from "@/components/sections/authority";
 import { ShowcaseProjects } from "@/components/sections/showcase-projects";
 import { Benefits } from "@/components/sections/benefits";
+import { ClientMachine } from "@/components/sections/client-machine";
 import { FAQ } from "@/components/sections/faq";
 import { FinalCTA } from "@/components/sections/final-cta";
 
@@ -13,6 +14,7 @@ export default function Home() {
       <Authority />
       <ShowcaseProjects />
       <Benefits />
+      <ClientMachine />
       <FAQ />
       <FinalCTA />
 

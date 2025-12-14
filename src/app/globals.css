@@ -153,18 +153,7 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  /* Hide default cursor on desktop to use custom cursor */
-  @media (hover: hover) and (pointer: fine) {
-    body {
-      cursor: none;
-    }
 
-    a,
-    button,
-    [role="button"] {
-      cursor: none;
-    }
-  }
 
   h1,
   h2,

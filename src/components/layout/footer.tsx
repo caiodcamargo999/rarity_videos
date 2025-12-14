@@ -40,11 +40,11 @@ export function Footer() {
                     </Link>
 
                     <div className="flex items-center gap-6">
-                        <Link href="https://instagram.com/rarityagency" target="_blank" className="text-white/60 hover:text-rarity-pink transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10">
+                        <Link href="https://www.instagram.com/rarity.agency/" target="_blank" className="text-white/60 hover:text-rarity-pink transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10">
                             <Instagram className="h-6 w-6" />
                             <span className="sr-only">Instagram</span>
                         </Link>
-                        <Link href="https://tiktok.com/@rarityagency" target="_blank" className="text-white/60 hover:text-rarity-pink transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10">
+                        <Link href="https://www.tiktok.com/@rarity.agency?lang=pt-BR" target="_blank" className="text-white/60 hover:text-rarity-pink transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10">
                             <TikTokIcon className="h-6 w-6" />
                             <span className="sr-only">TikTok</span>
                         </Link>

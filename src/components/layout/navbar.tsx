@@ -8,8 +8,10 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { useBooking } from "@/context/booking-context";
 
 export function Navbar() {
+    const { openBooking } = useBooking();
     const [scrolled, setScrolled] = React.useState(false);
 
     React.useEffect(() => {
@@ -42,14 +44,8 @@ export function Navbar() {
                         />
                     </Link>
 
-                    {/* Desktop CTA Only */}
-                    <div className="flex items-center gap-8">
-                        <Button
-                            className="bg-gradient-cta hover:opacity-90 transition-opacity text-white rounded-full px-6"
-                        >
-                            Agendar Consultoria
-                        </Button>
-                    </div>
+                    {/* Desktop CTA Only - Removed as requested */}
+                    <div className="hidden"></div>
                 </div>
             </Container>
         </header>

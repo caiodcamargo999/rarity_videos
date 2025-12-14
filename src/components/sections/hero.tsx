@@ -7,8 +7,11 @@ import { TechArrow } from "@/components/ui/tech-arrow";
 
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { useBooking } from "@/context/booking-context";
 
 export function Hero() {
+    const { openBooking } = useBooking();
+
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 lg:py-0">
             {/* Dynamic Background */}
@@ -81,6 +84,7 @@ export function Hero() {
                     >
                         <Button
                             size="lg"
+                            onClick={openBooking}
                             className="group h-14 px-8 text-lg rounded-full bg-gradient-cta hover:bg-gradient-to-r hover:from-rarity-purple hover:to-rarity-lavender shadow-[0_0_30px_rgba(155,0,200,0.5)] hover:shadow-[0_0_50px_rgba(155,0,200,0.7)] transition-all duration-300 transform hover:scale-105"
                         >
                             Quero Crescer Minha Marca <TechArrow />
@@ -97,14 +101,6 @@ export function Hero() {
                         <div className="flex items-center gap-2">
                             <CheckCircle2 className="h-4 w-4 text-rarity-lavender" />
                             <span>Consultoria gratuita de 15 min</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-rarity-lavender" />
-                            <span>Sem compromisso</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-rarity-lavender" />
-                            <span>Resposta em até 24h</span>
                         </div>
                     </motion.div>
                 </div>

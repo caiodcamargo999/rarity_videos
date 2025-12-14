@@ -10,8 +10,8 @@ export function CustomCursor() {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    // Add spring physics for smooth delay/trail effect
-    const springConfig = { damping: 25, stiffness: 150, mass: 0.5 };
+    // Smooth spring animation for the cursor
+    const springConfig = { damping: 25, stiffness: 300, mass: 0.2 };
     const cursorX = useSpring(mouseX, springConfig);
     const cursorY = useSpring(mouseY, springConfig);
 
@@ -26,8 +26,8 @@ export function CustomCursor() {
         setIsVisible(true);
 
         const moveCursor = (e: MouseEvent) => {
-            mouseX.set(e.clientX - 16); // Center the 32px cursor
-            mouseY.set(e.clientY - 16);
+            mouseX.set(e.clientX);
+            mouseY.set(e.clientY);
         };
 
         const handleMouseOver = (e: MouseEvent) => {
@@ -49,6 +49,9 @@ export function CustomCursor() {
             setIsHovering(false);
         };
 
+        // Hide default cursor
+        document.body.style.cursor = 'none';
+
         window.addEventListener("mousemove", moveCursor);
         document.addEventListener("mouseover", handleMouseOver);
         document.addEventListener("mouseout", handleMouseOut);
@@ -57,6 +60,7 @@ export function CustomCursor() {
             window.removeEventListener("mousemove", moveCursor);
             document.removeEventListener("mouseover", handleMouseOver);
             document.removeEventListener("mouseout", handleMouseOut);
+            document.body.style.cursor = 'auto';
         };
     }, [mouseX, mouseY]);
 
@@ -64,20 +68,34 @@ export function CustomCursor() {
 
     return (
         <motion.div
-            className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-[9999]"
+            className="fixed top-0 left-0 pointer-events-none z-[9999]"
             style={{
                 x: cursorX,
                 y: cursorY,
-                backgroundColor: isHovering ? "rgba(176, 68, 255, 0.9)" : "rgba(124, 58, 237, 0.8)",
-                filter: isHovering ? "blur(4px)" : "blur(6px)",
-                scale: isHovering ? 1.5 : 1,
-                mixBlendMode: "plus-lighter"
             }}
-            transition={{
-                scale: { duration: 0.2 },
-                backgroundColor: { duration: 0.2 },
-                filter: { duration: 0.2 }
-            }}
-        />
+        >
+            <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className={`transition-transform duration-200 ${isHovering ? "scale-125" : "scale-100"}`}
+            >
+                <path
+                    d="M3 3L10.07 19.97L12.58 12.58L19.97 10.07L3 3Z"
+                    fill="url(#cursor-gradient)"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinejoin="round"
+                />
+                <defs>
+                    <linearGradient id="cursor-gradient" x1="3" y1="3" x2="19.97" y2="19.97" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#6366f1" /> {/* Indigo */}
+                        <stop offset="1" stopColor="#a855f7" /> {/* Purple */}
+                    </linearGradient>
+                </defs>
+            </svg>
+        </motion.div>
     );
 }

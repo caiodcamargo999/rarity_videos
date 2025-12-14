@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google"; // Using Outfit as BentonSans proxy
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { BookingProvider } from "@/context/booking-context";
+import { Navbar } from "@/components/layout/navbar";
 
 const outfit = Outfit({
   variable: "--font-sans",
@@ -17,8 +19,6 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
 };
-
-import { CustomCursor } from "@/components/ui/custom-cursor";
 
 export default function RootLayout({
   children,
@@ -36,8 +36,9 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <CustomCursor />
-          {children}
+          <BookingProvider>
+            {children}
+          </BookingProvider>
         </ThemeProvider>
       </body>
     </html>
