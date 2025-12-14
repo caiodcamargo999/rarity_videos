@@ -124,10 +124,52 @@ export async function POST(req: Request) {
             }
         })();
 
-        // 3. Await both operations concurrently
+        // 3. Prepare Webhook Request (Concurrent)
+        const webhookPromise = (async () => {
+            try {
+                const webhookUrl = "https://primary-production-ff176.up.railway.app/webhook/rarity-videos-form";
+
+                // Formatting data for webhook just in case they need the formatted date too
+                const meetingDateFormatted = start.toLocaleString("pt-BR", {
+                    timeZone: "America/Sao_Paulo",
+                    day: "2-digit", month: "2-digit", year: "numeric",
+                    hour: "2-digit", minute: "2-digit"
+                });
+
+                const payload = {
+                    name,
+                    email,
+                    whatsapp,
+                    businessName,
+                    instagram,
+                    niche,
+                    startDateTime: start.toISOString(),
+                    meetingDateFormatted
+                };
+
+                console.log("[API] Sending data to n8n webhook...");
+                const webhookResponse = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload),
+                });
+
+                if (!webhookResponse.ok) {
+                    throw new Error(`Webhook failed with status: ${webhookResponse.status}`);
+                }
+                console.log("[API] Webhook sent successfully.");
+            } catch (webhookError: any) {
+                console.error("[API] ❌ ERROR SENDING WEBHOOK:", webhookError.message);
+                // We intentionally do not throw here to prevent blocking the user response
+            }
+        })();
+
+        // 4. Await all operations concurrently
         // This cuts down the user waiting time significantly
-        console.log("[API] Executing Calendar and Sheets tasks concurrently...");
-        const [response] = await Promise.all([calendarPromise, sheetsPromise]);
+        console.log("[API] Executing Calendar, Sheets, and Webhook tasks concurrently...");
+        const [response] = await Promise.all([calendarPromise, sheetsPromise, webhookPromise]);
 
         console.log(`[API] Event created. Invite sent to ${email}. Link: ${response.data.hangoutLink}`);
 
