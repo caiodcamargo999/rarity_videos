@@ -34,10 +34,19 @@ function VideoCard({ project, onClick }: { project: Project; onClick: (project: 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="group relative aspect-[9/16] w-full max-w-[300px] mx-auto rounded-2xl overflow-hidden cursor-pointer bg-neutral-900 border border-white/5 shadow-2xl hover:shadow-rarity-lavender/20 hover:scale-[1.02] transition-all duration-300"
+            className="group relative aspect-[9/16] w-full max-w-[300px] mx-auto rounded-2xl overflow-hidden cursor-pointer bg-neutral-900 border border-white/5 shadow-2xl hover:shadow-rarity-lavender/20 hover:scale-[1.02] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-rarity-lavender"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={() => onClick(project)}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onClick(project);
+                }
+            }}
+            role="button"
+            tabIndex={0}
+            aria-label={`Ver projeto ${project.title}`}
         >
             {/* Background Color Fallback / Overlay */}
             <div className={`absolute inset-0 ${project.color} opacity-20 pointer-events-none`} />

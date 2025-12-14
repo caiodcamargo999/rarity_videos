@@ -60,7 +60,7 @@ export function Benefits() {
                                 <div className="w-12 h-12 rounded-lg bg-rarity-blue/10 flex items-center justify-center mb-4 group-hover:bg-rarity-blue/20 transition-colors">
                                     <benefit.icon className="w-6 h-6 text-rarity-blue group-hover:text-rarity-lavender transition-colors" />
                                 </div>
-                                <CardTitle className="text-xl text-white">{benefit.title}</CardTitle>
+                                <h3 className="text-xl text-white font-semibold leading-none">{benefit.title}</h3>
                             </CardHeader>
                             <CardContent>
                                 <p className="text-white/60 leading-relaxed">

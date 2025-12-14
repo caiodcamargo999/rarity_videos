@@ -57,7 +57,9 @@ export function FAQ() {
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                         Perguntas Frequentes
                     </h2>
-                    Tire suas dúvidas sobre nosso processo de estratégia e produção.
+                    <p className="text-white/60">
+                        Tire suas dúvidas sobre nosso processo de estratégia e produção.
+                    </p>
                 </div>
 
                 <Accordion type="single" collapsible className="w-full">
