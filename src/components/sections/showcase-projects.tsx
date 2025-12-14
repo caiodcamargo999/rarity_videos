@@ -24,7 +24,7 @@ function VideoCard({ project, onClick }: { project: Project; onClick: (project: 
     const handleMouseLeave = () => {
         if (videoRef.current) {
             videoRef.current.pause();
-            videoRef.current.currentTime = 0;
+            videoRef.current.currentTime = 1; // Return to "thumbnail" frame
         }
     };
 
@@ -46,11 +46,12 @@ function VideoCard({ project, onClick }: { project: Project; onClick: (project: 
             {project.videoUrl && (
                 <video
                     ref={videoRef}
-                    src={project.videoUrl}
+                    src={`${project.videoUrl}#t=1`} // Start at 1s to avoid black frame
                     className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
                     muted
                     loop
                     playsInline
+                    preload="metadata"
                 />
             )}
 

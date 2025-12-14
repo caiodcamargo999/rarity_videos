@@ -13,7 +13,7 @@ export function Hero() {
     const { openBooking } = useBooking();
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 lg:py-0">
+        <section className="relative min-h-[85vh] lg:min-h-screen flex items-center justify-center overflow-hidden py-12 lg:py-0">
             {/* Dynamic Background */}
             <div className="absolute inset-0 w-full h-full bg-background z-0">
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-rarity-dark to-background opacity-90" />
