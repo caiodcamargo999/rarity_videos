@@ -40,7 +40,7 @@ export function Footer() {
                     </Link>
 
                     <div className="flex items-center gap-6">
-                        <Link href="https://www.instagram.com/rarity.agency/" target="_blank" className="text-white/60 hover:text-rarity-pink transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10">
+                        <Link href="https://www.instagram.com/rarity.brasil/" target="_blank" className="text-white/60 hover:text-rarity-pink transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10">
                             <Instagram className="h-6 w-6" />
                             <span className="sr-only">Instagram</span>
                         </Link>

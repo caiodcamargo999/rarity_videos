@@ -73,7 +73,7 @@ export function Hero() {
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                         className="text-lg md:text-2xl text-white/80 max-w-3xl font-light"
                     >
-                        Criamos conteúdo visual premium para marcas que querem dominar o digital e multiplicar resultados.
+                        Criamos estratégias de tráfego e funis de vendas validados para marcas que querem escalar suas vendas e dominar o digital.
                     </motion.p>
 
                     <motion.div
@@ -100,7 +100,7 @@ export function Hero() {
                     >
                         <div className="flex items-center gap-2">
                             <CheckCircle2 className="h-4 w-4 text-rarity-lavender" />
-                            <span>Consultoria gratuita de 15 min</span>
+                            <span>Consultoria gratuita de 40 min</span>
                         </div>
                     </motion.div>
                 </div>
