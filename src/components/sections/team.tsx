@@ -30,7 +30,7 @@ const members = [
     {
         name: "Diego",
         role: "Head de Mídia Paga e Performance",
-        avatar: "/team/diego.png",
+        avatar: "/team/diego_original.jpg",
         link: "#",
         bio: [
             "Minha trajetória no marketing digital começou quando fui impactado por um anúncio de um curso de tráfego pago. O interesse foi imediato: comprei, consumi o conteúdo rapidamente e me encantei com o poder dos anúncios on-line.",

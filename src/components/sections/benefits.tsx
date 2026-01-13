@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { ReactNode } from "react";
 import { Zap, Film, TrendingUp, Gem, HeartHandshake, Filter, Target, BarChart3, Timer } from "lucide-react";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/ui/container";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 const benefits = [
     {
@@ -39,10 +40,29 @@ const benefits = [
     },
 ];
 
+const CardDecorator = ({ children }: { children: ReactNode }) => (
+    <div className={cn(
+        "relative mx-auto size-36 duration-200",
+        "[--color-border:rgba(255,255,255,0.1)] group-hover:[--color-border:rgba(155,0,200,0.4)] transition-all"
+    )}>
+        <div
+            aria-hidden
+            className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(circle,transparent_40%,black_60%)]"
+        />
+
+        <div className="bg-background absolute inset-0 m-auto flex size-12 items-center justify-center border-l border-t border-white/10 group-hover:border-rarity-purple/50 transition-colors z-10">
+            {children}
+        </div>
+    </div>
+)
+
 export function Benefits() {
     return (
-        <Section id="beneficios" className="bg-background py-24">
-            <Container>
+        <Section id="beneficios" className="bg-background py-24 relative overflow-hidden">
+            {/* Ambient Background */}
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-rarity-blue/10 via-background to-background pointer-events-none" />
+
+            <Container className="relative z-10">
                 <div className="text-center mb-16 space-y-4">
                     <h2 className="text-3xl md:text-5xl font-bold text-white">
                         Por Que Escolher a <span className="text-transparent bg-clip-text bg-gradient-to-r from-rarity-blue to-rarity-pink">Rarity Agency?</span>
@@ -56,15 +76,15 @@ export function Benefits() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {benefits.map((benefit, index) => (
-                        <Card key={index} className="bg-card/50 backdrop-blur-sm border-white/5 hover:border-rarity-purple/50 transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl hover:shadow-rarity-purple/10">
-                            <CardHeader className="space-y-4">
-                                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-rarity-blue/20 to-rarity-purple/20 flex items-center justify-center group-hover:from-rarity-blue/30 group-hover:to-rarity-purple/30 transition-all border border-white/5">
-                                    <benefit.icon className="w-6 h-6 text-rarity-blue group-hover:text-rarity-lavender transition-colors" />
-                                </div>
-                                <h3 className="text-xl text-white font-bold">{benefit.title}</h3>
+                        <Card key={index} className="group bg-white/5 border-white/5 hover:border-rarity-purple/30 transition-all duration-500 shadow-none hover:shadow-[0_0_40px_-10px_rgba(155,0,200,0.3)]">
+                            <CardHeader className="pb-3 text-center">
+                                <CardDecorator>
+                                    <benefit.icon className="w-6 h-6 text-rarity-blue group-hover:text-rarity-lavender transition-colors duration-300" />
+                                </CardDecorator>
+                                <h3 className="mt-6 text-xl text-white font-bold">{benefit.title}</h3>
                             </CardHeader>
-                            <CardContent>
-                                <p className="text-muted-foreground leading-relaxed">
+                            <CardContent className="text-center">
+                                <p className="text-muted-foreground leading-relaxed text-sm">
                                     {benefit.description}
                                 </p>
                             </CardContent>
